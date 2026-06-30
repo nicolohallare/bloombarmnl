@@ -25,13 +25,13 @@
     theme: {
       extend: {
         colors: {
-          ink: '#0E0B08',
-          deep: '#1A1612',
-          panel: '#221C16',
-          cream: '#F4EFE3',
-          mute: '#A89E8B',
-          gold: '#C9A875',
-          line: 'rgba(244,239,227,0.12)',
+          paper: '#FAF6EE',
+          sand: '#EDE2D3',
+          stone: '#D9CFC0',
+          ink: '#1A1612',
+          mute: '#8B7E6C',
+          bronze: '#A88860',
+          line: 'rgba(26,22,18,0.12)',
         },
         fontFamily: {
           display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
@@ -66,47 +66,32 @@
 </script>
 
 <style>
-  body { font-family: 'Inter', system-ui, sans-serif; background: #0E0B08; color: #F4EFE3; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #FAF6EE; color: #1A1612; }
   .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
   .arch { border-radius: 50% 50% 6px 6px / 35% 35% 6px 6px; overflow: hidden; }
   .arch-soft { border-radius: 50% 50% 8px 8px / 22% 22% 8px 8px; overflow: hidden; }
   .pill { border-radius: 9999px; }
-  .text-gold-grad { background: linear-gradient(135deg, #E5C896 0%, #C9A875 50%, #9A7E54 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  @keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.1); } }
-  .sparkle { animation: twinkle 3s ease-in-out infinite; }
-  .sparkle:nth-of-type(2) { animation-delay: 0.5s; }
-  .sparkle:nth-of-type(3) { animation-delay: 1s; }
   .arch-ring { position: relative; }
-  .arch-ring::after { content: ''; position: absolute; inset: -2px; border: 1px solid rgba(201, 168, 117, 0.4); border-radius: inherit; pointer-events: none; }
+  .arch-ring::after { content: ''; position: absolute; inset: -2px; border: 1px solid rgba(168, 136, 96, 0.5); border-radius: inherit; pointer-events: none; }
 </style>
 </head>
-<body class="bg-ink">
+<body class="bg-paper">
 
-<svg width="0" height="0" style="position:absolute"><defs>
-  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 0 L13.5 9 L22.5 10.5 L13.5 12 L12 21 L10.5 12 L1.5 10.5 L10.5 9 Z" fill="currentColor"/></symbol>
-</defs></svg>
-
-<!-- HERO — LINKTREE-STYLE -->
-<section class="relative px-5 pt-10 pb-12 md:pt-16 md:pb-20 overflow-hidden">
-  <svg class="sparkle absolute top-16 left-6 w-4 h-4 text-gold/70"><use href="#spark"/></svg>
-  <svg class="sparkle absolute top-32 right-8 w-3 h-3 text-gold/50"><use href="#spark"/></svg>
-  <svg class="sparkle absolute top-72 left-10 w-2 h-2 text-gold/40"><use href="#spark"/></svg>
-
+<!-- HERO — LINKTREE-STYLE, LIGHT -->
+<section class="px-5 pt-10 pb-12 md:pt-16 md:pb-20">
   <div class="max-w-md mx-auto text-center">
 
     <!-- LOGO -->
     <div class="mb-2">
       <div class="font-display text-4xl md:text-5xl tracking-[0.15em] font-light">BLOOM</div>
-      <div class="text-[10px] tracking-widest-2 text-gold mt-1">BAR · MNL</div>
+      <div class="text-[10px] tracking-widest-2 text-bronze mt-1">BAR · MNL</div>
     </div>
 
     <!-- TAGLINE -->
     <div class="text-[10px] tracking-widest-2 uppercase text-mute mt-6 mb-8">Beauty Angels Certified · Pasig, Manila</div>
 
-    <!-- ARCHED PHOTO -->
-    <div class="relative max-w-[280px] mx-auto mb-8">
-      <svg class="sparkle absolute -top-2 -left-3 w-5 h-5 text-gold z-10"><use href="#spark"/></svg>
-      <svg class="sparkle absolute -bottom-2 -right-3 w-4 h-4 text-gold/80 z-10"><use href="#spark"/></svg>
+    <!-- ARCHED PHOTO — no sparkles -->
+    <div class="max-w-[280px] mx-auto mb-8">
       <div class="arch arch-ring">
         <img src="https://bloombarmnl.com/wp-content/uploads/2024/08/Welcome-photo-768x1152.jpg" alt="Izza Hallare, brow artist at Bloom Bar MNL" class="w-full aspect-[3/4] object-cover" loading="eager" />
       </div>
@@ -114,41 +99,41 @@
 
     <!-- HEADLINE -->
     <h1 class="font-display text-3xl md:text-4xl leading-tight font-light mb-3">
-      Unique brows for<br/>unique <em class="italic text-gold-grad">individuals.</em>
+      Unique brows for<br/>unique <em class="italic">individuals.</em>
     </h1>
     <p class="text-mute text-sm mb-2">Microblading · Combination · Powder Brows</p>
-    <p class="text-gold text-sm font-medium mb-8">All treatments ₱10,000 · 2 sessions included</p>
+    <p class="text-bronze text-sm font-medium mb-8">All treatments ₱10,000 · 2 sessions included</p>
 
-    <!-- BIG BUTTONS — the Linktree row -->
+    <!-- BIG BUTTONS -->
     <div class="space-y-3">
-      <a href="https://BloomBarMNL.as.me/" class="pill block bg-cream text-ink py-4 text-base font-medium tracking-wide hover:bg-gold transition-colors">
+      <a href="https://BloomBarMNL.as.me/" class="pill block bg-ink text-paper py-4 text-base font-medium tracking-wide hover:bg-bronze transition-colors">
         📅  Book Now
       </a>
       <div class="grid grid-cols-2 gap-3">
-        <a href="viber://chat?number=%2B639088190053" class="pill border border-cream/40 text-cream py-4 text-sm tracking-wide hover:bg-cream hover:text-ink transition-colors text-center">
+        <a href="viber://chat?number=%2B639088190053" class="pill border border-ink/30 text-ink py-4 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors text-center">
           💜  Viber
         </a>
-        <a href="https://wa.me/639088190053" class="pill border border-cream/40 text-cream py-4 text-sm tracking-wide hover:bg-cream hover:text-ink transition-colors text-center">
+        <a href="https://wa.me/639088190053" class="pill border border-ink/30 text-ink py-4 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors text-center">
           💚  WhatsApp
         </a>
       </div>
-      <a href="tel:+639088190053" class="pill block border border-cream/40 text-cream py-4 text-base tracking-wide hover:bg-cream hover:text-ink transition-colors">
+      <a href="tel:+639088190053" class="pill block border border-ink/30 text-ink py-4 text-base tracking-wide hover:bg-ink hover:text-paper transition-colors">
         📞  Call Izza
       </a>
-      <a href="https://maps.app.goo.gl/i4gTdbmWUnPDLkJEA" class="pill block border border-cream/40 text-cream py-4 text-base tracking-wide hover:bg-cream hover:text-ink transition-colors">
+      <a href="https://maps.app.goo.gl/i4gTdbmWUnPDLkJEA" class="pill block border border-ink/30 text-ink py-4 text-base tracking-wide hover:bg-ink hover:text-paper transition-colors">
         📍  Get Directions
       </a>
     </div>
 
     <!-- CONSULTATION CALLOUT -->
-    <div class="mt-6 px-5 py-4 border border-gold/30 rounded-2xl text-sm">
-      <span class="text-gold font-medium">First time?</span> <span class="text-cream/85">Send a photo of your bare brows via Viber, WhatsApp, or Instagram for a <em class="italic">free 10-minute consultation</em>.</span>
+    <div class="mt-6 px-5 py-4 bg-sand rounded-2xl text-sm">
+      <span class="text-bronze font-medium">First time?</span> <span class="text-ink/85">Send a photo of your bare brows via Viber, WhatsApp, or Instagram for a <em class="italic">free 10-minute consultation</em>.</span>
     </div>
 
     <!-- SOCIAL ICONS -->
     <div class="flex justify-center gap-3 mt-8">
-      <a href="https://www.instagram.com/bloombarmnl/" class="pill w-12 h-12 border border-line flex items-center justify-center hover:bg-cream hover:text-ink hover:border-cream transition-colors text-xs tracking-wider" aria-label="Instagram">IG</a>
-      <a href="https://www.facebook.com/profile.php?id=100084843514331" class="pill w-12 h-12 border border-line flex items-center justify-center hover:bg-cream hover:text-ink hover:border-cream transition-colors text-xs tracking-wider" aria-label="Facebook">FB</a>
+      <a href="https://www.instagram.com/bloombarmnl/" class="pill w-12 h-12 border border-ink/30 flex items-center justify-center hover:bg-ink hover:text-paper transition-colors text-xs tracking-wider" aria-label="Instagram">IG</a>
+      <a href="https://www.facebook.com/profile.php?id=100084843514331" class="pill w-12 h-12 border border-ink/30 flex items-center justify-center hover:bg-ink hover:text-paper transition-colors text-xs tracking-wider" aria-label="Facebook">FB</a>
     </div>
 
     <div class="mt-12 text-[10px] tracking-widest-2 uppercase text-mute">
@@ -158,11 +143,11 @@
 </section>
 
 <!-- RECENT WORK GALLERY -->
-<section class="px-5 py-16 md:py-20 bg-deep">
+<section class="px-5 py-16 md:py-20 bg-sand">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-10">
-      <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-3">Recent work</div>
-      <h2 class="font-display text-3xl md:text-5xl font-light">Real <em class="italic text-gold">clients.</em></h2>
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Recent Work ·</div>
+      <h2 class="font-display text-3xl md:text-5xl font-light">Real <em class="italic">clients.</em></h2>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
       <div class="arch-soft"><img src="https://bloombarmnl.com/wp-content/uploads/2024/07/Vanessa-768x1024.jpg" alt="Microblading client Vanessa" class="w-full aspect-[3/4] object-cover object-top" loading="lazy" /></div>
@@ -176,84 +161,84 @@
       <div class="arch-soft hidden md:block"><img src="https://bloombarmnl.com/wp-content/uploads/2024/07/Kathleen-768x1024.jpg" alt="Brow client Kathleen" class="w-full aspect-[3/4] object-cover object-top" loading="lazy" /></div>
     </div>
     <div class="text-center mt-8">
-      <a href="https://www.instagram.com/bloombarmnl/" class="pill inline-block border border-cream/40 text-cream px-7 py-3 text-sm tracking-wide hover:bg-cream hover:text-ink transition-colors">See more on Instagram</a>
+      <a href="https://www.instagram.com/bloombarmnl/" class="pill inline-block border border-ink/30 text-ink px-7 py-3 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors">See more on Instagram</a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES — SIMPLE WITH REAL PRICING -->
+<!-- SERVICES -->
 <section class="px-5 py-16 md:py-20 max-w-3xl mx-auto">
   <div class="text-center mb-10">
-    <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-3">Treatments</div>
+    <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Treatments ·</div>
     <h2 class="font-display text-3xl md:text-5xl font-light mb-4">Three techniques.</h2>
-    <p class="font-display text-2xl text-gold-grad italic">All ₱10,000 · 2 sessions included</p>
+    <p class="font-display text-2xl text-bronze italic">All ₱10,000 · 2 sessions included</p>
   </div>
 
   <div class="space-y-4">
-    <div class="bg-deep border border-line rounded-3xl p-6">
+    <div class="bg-paper border border-stone rounded-3xl p-6">
       <h3 class="font-display text-2xl font-light mb-1">Microblading</h3>
       <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Normal skin · Natural daytime look</p>
-      <p class="text-cream/85 leading-relaxed text-[15px]">Pigment placed in fine, hairlike strokes. For those who struggle with sparser brows and want the most natural daytime look.</p>
+      <p class="text-ink/80 leading-relaxed text-[15px]">Pigment placed in fine, hairlike strokes. For those who struggle with sparser brows and want the most natural daytime look.</p>
     </div>
 
-    <div class="bg-deep border-2 border-gold/40 rounded-3xl p-6 relative">
-      <div class="absolute -top-3 left-6 bg-gold text-ink text-[10px] tracking-widest-2 uppercase px-3 py-1 rounded-full font-medium">Izza's favorite</div>
+    <div class="bg-paper border-2 border-bronze rounded-3xl p-6 relative">
+      <div class="absolute -top-3 left-6 bg-bronze text-paper text-[10px] tracking-widest-2 uppercase px-3 py-1 rounded-full font-medium">Izza's favorite</div>
       <h3 class="font-display text-2xl font-light mb-1">Combination Brows</h3>
       <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Oily skin · Medium to bold definition</p>
-      <p class="text-cream/85 leading-relaxed text-[15px]">Microblading plus shading for added density. Perfect for those who like to fill in their brows daily and prefer a more defined look.</p>
+      <p class="text-ink/80 leading-relaxed text-[15px]">Microblading plus shading for added density. Perfect for those who like to fill in their brows daily and prefer a more defined look.</p>
     </div>
 
-    <div class="bg-deep border border-line rounded-3xl p-6">
+    <div class="bg-paper border border-stone rounded-3xl p-6">
       <h3 class="font-display text-2xl font-light mb-1">Powder Brows</h3>
       <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Oily skin · Bold makeup-look finish</p>
-      <p class="text-cream/85 leading-relaxed text-[15px]">Soft shaded effect like powder makeup. For clients who prefer a bolder, more defined look.</p>
+      <p class="text-ink/80 leading-relaxed text-[15px]">Soft shaded effect like powder makeup. For clients who prefer a bolder, more defined look.</p>
     </div>
   </div>
 
   <!-- FREE CONSULT CALLOUT -->
-  <div class="bg-panel rounded-3xl p-6 mt-6 text-center border border-gold/20">
-    <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-2">Required First Step</div>
-    <p class="text-cream/90 leading-relaxed">Every brow treatment starts with a <span class="text-gold font-medium">free 10-minute consultation</span>. Just send Izza a photo of your bare brows via Viber, WhatsApp, Instagram, or email.</p>
+  <div class="bg-sand rounded-3xl p-6 mt-6 text-center">
+    <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-2">Required First Step</div>
+    <p class="text-ink/85 leading-relaxed">Every brow treatment starts with a <span class="text-bronze font-medium">free 10-minute consultation</span>. Just send Izza a photo of your bare brows via Viber, WhatsApp, Instagram, or email.</p>
   </div>
 
   <!-- ANNUAL RETOUCH -->
-  <div class="bg-deep border border-line rounded-3xl p-6 mt-4 flex justify-between items-center">
+  <div class="bg-paper border border-stone rounded-3xl p-6 mt-4 flex justify-between items-center">
     <div>
       <h3 class="font-display text-xl font-light">Annual Brow Retouch</h3>
       <p class="text-mute text-xs uppercase tracking-widest-2 mt-1">Only for Bloom Bar clients · 1 session</p>
     </div>
-    <div class="font-display text-2xl text-gold flex-shrink-0">₱5,000</div>
+    <div class="font-display text-2xl text-bronze flex-shrink-0">₱5,000</div>
   </div>
 
   <div class="text-center mt-10">
-    <a href="https://BloomBarMNL.as.me/" class="pill inline-block bg-cream text-ink px-9 py-4 font-medium tracking-wide hover:bg-gold transition-colors">📅 Book Now</a>
+    <a href="https://BloomBarMNL.as.me/" class="pill inline-block bg-ink text-paper px-9 py-4 font-medium tracking-wide hover:bg-bronze transition-colors">📅 Book Now</a>
   </div>
 </section>
 
 <!-- REVIEWS -->
-<section class="px-5 py-16 md:py-20 bg-deep">
+<section class="px-5 py-16 md:py-20 bg-sand">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-10">
-      <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-3">What clients say</div>
-      <h2 class="font-display text-3xl md:text-5xl font-light mb-3">"I found <em class="italic text-gold">the one.</em>"</h2>
-      <div class="flex items-center justify-center gap-2 text-gold text-lg">★ ★ ★ ★ ★</div>
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· What Clients Say ·</div>
+      <h2 class="font-display text-3xl md:text-5xl font-light mb-3">"I found <em class="italic">the one.</em>"</h2>
+      <div class="flex items-center justify-center gap-2 text-bronze text-lg">★ ★ ★ ★ ★</div>
       <div class="text-xs tracking-widest-2 uppercase text-mute mt-2">4.9 on Google · 80+ reviews</div>
     </div>
     <div class="space-y-4">
-      <div class="bg-ink border border-line rounded-3xl p-6">
-        <div class="flex gap-0.5 mb-3 text-gold">★ ★ ★ ★ ★</div>
-        <p class="text-cream/85 leading-relaxed mb-4 italic font-display text-lg">"I've had several microblading procedures done by famous artists, but Izza was the first to truly understand my brows. I've found THE one."</p>
-        <div class="text-[11px] tracking-widest-2 uppercase text-gold">— Rachel Flameno</div>
+      <div class="bg-paper border border-stone rounded-3xl p-6">
+        <div class="flex gap-0.5 mb-3 text-bronze">★ ★ ★ ★ ★</div>
+        <p class="text-ink/85 leading-relaxed mb-4 italic font-display text-lg">"I've had several microblading procedures done by famous artists, but Izza was the first to truly understand my brows. I've found THE one."</p>
+        <div class="text-[11px] tracking-widest-2 uppercase text-bronze">— Rachel Flameno</div>
       </div>
-      <div class="bg-ink border border-line rounded-3xl p-6">
-        <div class="flex gap-0.5 mb-3 text-gold">★ ★ ★ ★ ★</div>
-        <p class="text-cream/85 leading-relaxed mb-4 italic font-display text-lg">"I was scared they wouldn't turn out natural. Izza's work stood out the most. Quality work, clean & beautiful place, kind and talented artist."</p>
-        <div class="text-[11px] tracking-widest-2 uppercase text-gold">— Krishane Abalos</div>
+      <div class="bg-paper border border-stone rounded-3xl p-6">
+        <div class="flex gap-0.5 mb-3 text-bronze">★ ★ ★ ★ ★</div>
+        <p class="text-ink/85 leading-relaxed mb-4 italic font-display text-lg">"I was scared they wouldn't turn out natural. Izza's work stood out the most. Quality work, clean & beautiful place, kind and talented artist."</p>
+        <div class="text-[11px] tracking-widest-2 uppercase text-bronze">— Krishane Abalos</div>
       </div>
-      <div class="bg-ink border border-line rounded-3xl p-6">
-        <div class="flex gap-0.5 mb-3 text-gold">★ ★ ★ ★ ★</div>
-        <p class="text-cream/85 leading-relaxed mb-4 italic font-display text-lg">"She discusses everything in detail before the procedure. You can't go wrong trusting your eyebrows to a Beauty Angels Academy certified artist."</p>
-        <div class="text-[11px] tracking-widest-2 uppercase text-gold">— Mary Javier</div>
+      <div class="bg-paper border border-stone rounded-3xl p-6">
+        <div class="flex gap-0.5 mb-3 text-bronze">★ ★ ★ ★ ★</div>
+        <p class="text-ink/85 leading-relaxed mb-4 italic font-display text-lg">"She discusses everything in detail before the procedure. You can't go wrong trusting your eyebrows to a Beauty Angels Academy certified artist."</p>
+        <div class="text-[11px] tracking-widest-2 uppercase text-bronze">— Mary Javier</div>
       </div>
     </div>
   </div>
@@ -261,12 +246,10 @@
 
 <!-- ABOUT IZZA -->
 <section class="px-5 py-16 md:py-20 max-w-3xl mx-auto text-center">
-  <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-3">Meet your artist</div>
-  <h2 class="font-display text-3xl md:text-5xl font-light mb-8">Izza <em class="italic text-gold">Hallare.</em></h2>
+  <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Meet Your Artist ·</div>
+  <h2 class="font-display text-3xl md:text-5xl font-light mb-8">Izza <em class="italic">Hallare.</em></h2>
 
-  <div class="relative max-w-[260px] mx-auto mb-8">
-    <svg class="sparkle absolute -top-3 -right-3 w-5 h-5 text-gold z-10"><use href="#spark"/></svg>
-    <svg class="sparkle absolute -bottom-3 -left-3 w-4 h-4 text-gold/70 z-10"><use href="#spark"/></svg>
+  <div class="max-w-[260px] mx-auto mb-8">
     <div class="arch arch-ring">
       <img src="https://bloombarmnl.com/wp-content/uploads/2024/08/Welcome-photo-768x1152.jpg" alt="Izza Hallare" class="w-full aspect-[3/4] object-cover" loading="lazy" />
     </div>
@@ -279,53 +262,53 @@
     Her standard is simple: brows so natural that strangers compliment your face, not your brows. Every tool single-use, every workspace sterilized between clients.
   </p>
 
-  <div class="inline-flex items-center gap-3 text-[10px] tracking-widest-2 uppercase text-cream border border-line rounded-full px-5 py-2.5">
-    <svg class="w-3 h-3 text-gold"><use href="#spark"/></svg> Beauty Angels Academy Certified
+  <div class="inline-flex items-center gap-3 text-[10px] tracking-widest-2 uppercase text-ink border border-bronze/40 rounded-full px-5 py-2.5">
+    <span class="text-bronze">✦</span> Beauty Angels Academy Certified
   </div>
 </section>
 
-<!-- FAQ — ALWAYS OPEN, NO ACCORDION -->
-<section class="px-5 py-16 md:py-20 bg-deep">
+<!-- FAQ -->
+<section class="px-5 py-16 md:py-20 bg-sand">
   <div class="max-w-2xl mx-auto">
     <div class="text-center mb-12">
-      <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-3">Good to know</div>
-      <h2 class="font-display text-3xl md:text-5xl font-light">Common <em class="italic text-gold">questions.</em></h2>
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Good to Know ·</div>
+      <h2 class="font-display text-3xl md:text-5xl font-light">Common <em class="italic">questions.</em></h2>
     </div>
     <div class="space-y-8">
       <div>
-        <h3 class="font-display text-xl md:text-2xl font-light text-gold mb-2">Do I need a consultation first?</h3>
-        <p class="text-cream/85 leading-relaxed">Yes — a free 10-minute online consultation is required before booking any brow treatment. Just send a photo of your bare brows (no makeup) via Viber, WhatsApp, Instagram, or email. Izza will confirm if you're a good candidate and recommend the best technique.</p>
+        <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">Do I need a consultation first?</h3>
+        <p class="text-ink/85 leading-relaxed">Yes — a free 10-minute online consultation is required before booking any brow treatment. Just send a photo of your bare brows (no makeup) via Viber, WhatsApp, Instagram, or email. Izza will confirm if you're a good candidate and recommend the best technique.</p>
       </div>
       <div>
-        <h3 class="font-display text-xl md:text-2xl font-light text-gold mb-2">Am I a candidate?</h3>
-        <p class="text-cream/85 leading-relaxed">You're a good candidate if you're not pregnant or breastfeeding, don't have keloid scarring, aren't using retinol or strong skincare actives, and don't have very oily skin in the brow area. Have existing brow tattoos? Possible, but an additional charge may apply.</p>
+        <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">Am I a candidate?</h3>
+        <p class="text-ink/85 leading-relaxed">You're a good candidate if you're not pregnant or breastfeeding, don't have keloid scarring, aren't using retinol or strong skincare actives, and don't have very oily skin in the brow area. Have existing brow tattoos? Possible, but an additional charge may apply.</p>
       </div>
       <div>
-        <h3 class="font-display text-xl md:text-2xl font-light text-gold mb-2">What's included in the price?</h3>
-        <p class="text-cream/85 leading-relaxed">Every ₱10,000 treatment includes <em class="italic">two sessions</em> — your first appointment plus a mandatory second session 6–10 weeks later to perfect the saturation and shape.</p>
+        <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">What's included in the price?</h3>
+        <p class="text-ink/85 leading-relaxed">Every ₱10,000 treatment includes <em class="italic">two sessions</em> — your first appointment plus a mandatory second session 6–10 weeks later to perfect the saturation and shape.</p>
       </div>
       <div>
-        <h3 class="font-display text-xl md:text-2xl font-light text-gold mb-2">How long does it last?</h3>
-        <p class="text-cream/85 leading-relaxed">Microblading lasts 1–2 years. Powder brows last 2–3 years. Combination brows last up to 3 years. An annual retouch (₱5,000) keeps them looking fresh year-round.</p>
+        <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">How long does it last?</h3>
+        <p class="text-ink/85 leading-relaxed">Microblading lasts 1–2 years. Powder brows last 2–3 years. Combination brows last up to 3 years. An annual retouch (₱5,000) keeps them looking fresh year-round.</p>
       </div>
       <div>
-        <h3 class="font-display text-xl md:text-2xl font-light text-gold mb-2">What if I miss my second session?</h3>
-        <p class="text-cream/85 leading-relaxed">The second session is valid 6–10 weeks after your first. If you miss the window, late touch-up rates apply: ₱5,000 after 10 weeks, ₱7,500 after 6 months, or full price after 12 months.</p>
+        <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">What if I miss my second session?</h3>
+        <p class="text-ink/85 leading-relaxed">The second session is valid 6–10 weeks after your first. If you miss the window, late touch-up rates apply: ₱5,000 after 10 weeks, ₱7,500 after 6 months, or full price after 12 months.</p>
       </div>
       <div>
-        <h3 class="font-display text-xl md:text-2xl font-light text-gold mb-2">How do I prepare?</h3>
-        <p class="text-cream/85 leading-relaxed">No Botox 3 weeks before. No retinols or strong skincare for 30 days. No alcohol or caffeine 24 hours before. No waxing or tinting for 3 days before.</p>
+        <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">How do I prepare?</h3>
+        <p class="text-ink/85 leading-relaxed">No Botox 3 weeks before. No retinols or strong skincare for 30 days. No alcohol or caffeine 24 hours before. No waxing or tinting for 3 days before.</p>
       </div>
       <div>
-        <h3 class="font-display text-xl md:text-2xl font-light text-gold mb-2">How can I pay?</h3>
-        <p class="text-cream/85 leading-relaxed">Cash, bank transfer, or credit card. A deposit secures your appointment. All payments and deposits are non-refundable; please reschedule at least 24 hours in advance.</p>
+        <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">How can I pay?</h3>
+        <p class="text-ink/85 leading-relaxed">Cash, bank transfer, or credit card. A deposit secures your appointment. All payments and deposits are non-refundable; please reschedule at least 24 hours in advance.</p>
       </div>
     </div>
     <div class="text-center mt-12">
       <p class="text-mute text-sm mb-4">Still have questions? Just chat with Izza.</p>
       <div class="flex gap-3 justify-center flex-wrap">
-        <a href="viber://chat?number=%2B639088190053" class="pill inline-block border border-cream/40 text-cream px-7 py-3 text-sm tracking-wide hover:bg-cream hover:text-ink transition-colors">💜 Viber</a>
-        <a href="https://wa.me/639088190053" class="pill inline-block border border-cream/40 text-cream px-7 py-3 text-sm tracking-wide hover:bg-cream hover:text-ink transition-colors">💚 WhatsApp</a>
+        <a href="viber://chat?number=%2B639088190053" class="pill inline-block border border-ink/30 text-ink px-7 py-3 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors">💜 Viber</a>
+        <a href="https://wa.me/639088190053" class="pill inline-block border border-ink/30 text-ink px-7 py-3 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors">💚 WhatsApp</a>
       </div>
     </div>
   </div>
@@ -333,54 +316,54 @@
 
 <!-- VISIT US -->
 <section class="px-5 py-16 md:py-20 max-w-md mx-auto text-center">
-  <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-3">Visit us</div>
-  <h2 class="font-display text-3xl md:text-5xl font-light mb-10">Find <em class="italic text-gold">Bloom Bar.</em></h2>
+  <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Visit Us ·</div>
+  <h2 class="font-display text-3xl md:text-5xl font-light mb-10">Find <em class="italic">Bloom Bar.</em></h2>
 
   <div class="space-y-7 text-left">
     <div>
-      <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-1">Studio</div>
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-1">Studio</div>
       <div class="text-lg">Valle Verde, Pasig City<br/>Metro Manila, Philippines</div>
     </div>
     <div>
-      <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-1">Hours</div>
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-1">Hours</div>
       <div class="text-lg">Monday – Friday<br/>9:00 AM – 5:00 PM</div>
     </div>
     <div>
-      <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-1">Phone · Viber · WhatsApp</div>
-      <a href="tel:+639088190053" class="text-lg hover:text-gold">+63 908 819 0053</a>
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-1">Phone · Viber · WhatsApp</div>
+      <a href="tel:+639088190053" class="text-lg hover:text-bronze">+63 908 819 0053</a>
     </div>
     <div>
-      <div class="text-[10px] tracking-widest-2 uppercase text-gold mb-1">Email</div>
-      <a href="mailto:bloombarmnl@gmail.com" class="text-lg hover:text-gold">bloombarmnl@gmail.com</a>
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-1">Email</div>
+      <a href="mailto:bloombarmnl@gmail.com" class="text-lg hover:text-bronze">bloombarmnl@gmail.com</a>
     </div>
   </div>
 
   <div class="mt-10 space-y-3">
-    <a href="https://BloomBarMNL.as.me/" class="pill block bg-cream text-ink py-4 font-medium tracking-wide hover:bg-gold transition-colors">📅 Book Now</a>
-    <a href="https://maps.app.goo.gl/i4gTdbmWUnPDLkJEA" class="pill block border border-cream/40 text-cream py-4 tracking-wide hover:bg-cream hover:text-ink transition-colors">📍 Get Directions</a>
+    <a href="https://BloomBarMNL.as.me/" class="pill block bg-ink text-paper py-4 font-medium tracking-wide hover:bg-bronze transition-colors">📅 Book Now</a>
+    <a href="https://maps.app.goo.gl/i4gTdbmWUnPDLkJEA" class="pill block border border-ink/30 text-ink py-4 tracking-wide hover:bg-ink hover:text-paper transition-colors">📍 Get Directions</a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="px-5 py-10 border-t border-line text-center">
+<footer class="px-5 py-10 border-t border-stone text-center bg-paper">
   <div class="font-display text-2xl tracking-[0.15em] mb-1">BLOOM</div>
-  <div class="text-[9px] tracking-widest-2 text-gold mb-6">BAR · MNL</div>
+  <div class="text-[9px] tracking-widest-2 text-bronze mb-6">BAR · MNL</div>
   <div class="flex justify-center gap-3 mb-6">
-    <a href="https://www.instagram.com/bloombarmnl/" class="pill w-11 h-11 border border-line flex items-center justify-center hover:bg-cream hover:text-ink hover:border-cream transition-colors text-xs tracking-wider" aria-label="Instagram">IG</a>
-    <a href="https://www.facebook.com/profile.php?id=100084843514331" class="pill w-11 h-11 border border-line flex items-center justify-center hover:bg-cream hover:text-ink hover:border-cream transition-colors text-xs tracking-wider" aria-label="Facebook">FB</a>
+    <a href="https://www.instagram.com/bloombarmnl/" class="pill w-11 h-11 border border-ink/30 flex items-center justify-center hover:bg-ink hover:text-paper transition-colors text-xs tracking-wider" aria-label="Instagram">IG</a>
+    <a href="https://www.facebook.com/profile.php?id=100084843514331" class="pill w-11 h-11 border border-ink/30 flex items-center justify-center hover:bg-ink hover:text-paper transition-colors text-xs tracking-wider" aria-label="Facebook">FB</a>
   </div>
   <div class="text-[10px] tracking-widest-2 uppercase text-mute">© 2026 Bloom Bar MNL</div>
 </footer>
 
 <!-- MOBILE STICKY BAR -->
-<div class="fixed bottom-0 left-0 right-0 bg-panel border-t border-line text-cream grid grid-cols-3 z-50">
-  <a href="viber://chat?number=%2B639088190053" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase border-r border-line">
+<div class="fixed bottom-0 left-0 right-0 bg-paper border-t border-stone text-ink grid grid-cols-3 z-50">
+  <a href="viber://chat?number=%2B639088190053" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase border-r border-stone">
     <span class="text-base">💬</span> Chat
   </a>
-  <a href="tel:+639088190053" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase border-r border-line">
+  <a href="tel:+639088190053" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase border-r border-stone">
     <span class="text-base">📞</span> Call
   </a>
-  <a href="https://BloomBarMNL.as.me/" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase bg-cream text-ink font-medium">
+  <a href="https://BloomBarMNL.as.me/" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase bg-ink text-paper font-medium">
     <span class="text-base">📅</span> Book
   </a>
 </div>
