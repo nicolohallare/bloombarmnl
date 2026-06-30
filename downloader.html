@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bloom Bar — Image Downloader</title>
+<meta name="robots" content="noindex,nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500;600&display=swap" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #FAF6EE; color: #1A1612; padding: 24px 16px 80px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 36px; margin-bottom: 8px; }
+  .sub { color: #8B7E6C; margin-bottom: 32px; font-size: 14px; line-height: 1.5; }
+  .container { max-width: 600px; margin: 0 auto; }
+  .big-btn { display: block; width: 100%; padding: 20px; background: #1A1612; color: #FAF6EE; border: none; border-radius: 9999px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; cursor: pointer; margin-bottom: 16px; }
+  .big-btn:hover { background: #A88860; }
+  .big-btn:disabled { opacity: 0.5; }
+  .status { padding: 16px; background: #EDE2D3; border-radius: 16px; margin-bottom: 24px; font-size: 14px; min-height: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .card { background: white; border: 1px solid #D9CFC0; border-radius: 16px; overflow: hidden; }
+  .card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; display: block; }
+  .card .info { padding: 12px; }
+  .card .name { font-size: 12px; font-weight: 500; margin-bottom: 8px; }
+  .card .dl { display: block; width: 100%; padding: 10px; background: #FAF6EE; border: 1px solid #1A1612; border-radius: 9999px; color: #1A1612; text-align: center; text-decoration: none; font-size: 12px; font-weight: 500; }
+  .card.done { background: #EDE2D3; }
+  .card.done .dl { background: #A88860; color: white; border-color: #A88860; }
+  .ok { color: #2D5016; }
+  .err { color: #8B2C2C; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Image Downloader</h1>
+<p class="sub">One tap downloads all 11 of Bloom Bar's photos to your device. Then you can upload them back to Claude.</p>
+
+<button id="dl-all" class="big-btn">⬇  Download All 11 Images</button>
+
+<div id="status" class="status">Ready. Tap the button above.</div>
+
+<div id="grid" class="grid"></div>
+
+</div>
+<script>
+const IMAGES = [
+  { src: '/images-proxy/2024/08/Welcome-photo-768x1152.jpg', name: 'welcome.jpg', label: 'Welcome photo' },
+  { src: '/images-proxy/2024/07/Vanessa-768x1024.jpg', name: 'vanessa.jpg', label: 'Vanessa' },
+  { src: '/images-proxy/2024/07/Yzah-768x1024.jpg', name: 'yzah.jpg', label: 'Yzah' },
+  { src: '/images-proxy/2024/07/Zina-768x1024.jpg', name: 'zina.jpg', label: 'Zina' },
+  { src: '/images-proxy/2024/07/Anna-768x1024.jpg', name: 'anna.jpg', label: 'Anna' },
+  { src: '/images-proxy/2024/07/Apple-768x1024.jpg', name: 'apple.jpg', label: 'Apple' },
+  { src: '/images-proxy/2024/07/Blaire-768x1024.jpg', name: 'blaire.jpg', label: 'Blaire' },
+  { src: '/images-proxy/2024/07/Faye-768x1024.jpg', name: 'faye.jpg', label: 'Faye' },
+  { src: '/images-proxy/2024/07/Gen-731x1024.jpg', name: 'gen.jpg', label: 'Gen' },
+  { src: '/images-proxy/2024/07/Jang-768x1024.jpg', name: 'jang.jpg', label: 'Jang' },
+  { src: '/images-proxy/2024/07/Kathleen-768x1024.jpg', name: 'kathleen.jpg', label: 'Kathleen' },
+];
+
+const grid = document.getElementById('grid');
+const statusEl = document.getElementById('status');
+const dlAllBtn = document.getElementById('dl-all');
+
+// Render thumbnails
+IMAGES.forEach((img, i) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.id = `card-${i}`;
+  card.innerHTML = `
+    <img src="${img.src}" alt="${img.label}" />
+    <div class="info">
+      <div class="name">${img.label}</div>
+      <a class="dl" href="#" data-idx="${i}">Download</a>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+
+// Individual download function
+async function downloadOne(idx) {
+  const img = IMAGES[idx];
+  const card = document.getElementById(`card-${idx}`);
+  try {
+    const response = await fetch(img.src);
+    if (!response.ok) throw new Error('Fetch failed: ' + response.status);
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = img.name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    card.classList.add('done');
+    return true;
+  } catch (e) {
+    console.error('Failed', img.name, e);
+    return false;
+  }
+}
+
+// Individual download button handlers
+grid.addEventListener('click', async (e) => {
+  if (e.target.classList.contains('dl')) {
+    e.preventDefault();
+    const idx = parseInt(e.target.dataset.idx);
+    statusEl.textContent = `Downloading ${IMAGES[idx].label}...`;
+    const ok = await downloadOne(idx);
+    statusEl.textContent = ok ? `✓ Downloaded ${IMAGES[idx].name}` : `✗ Failed: ${IMAGES[idx].label}`;
+  }
+});
+
+// Download all
+dlAllBtn.addEventListener('click', async () => {
+  dlAllBtn.disabled = true;
+  let ok = 0, fail = 0;
+  for (let i = 0; i < IMAGES.length; i++) {
+    statusEl.textContent = `Downloading ${i+1}/${IMAGES.length}: ${IMAGES[i].label}...`;
+    const result = await downloadOne(i);
+    if (result) ok++; else fail++;
+    // Pause between downloads so the browser doesn't bunch them up
+    await new Promise(r => setTimeout(r, 600));
+  }
+  statusEl.innerHTML = fail > 0
+    ? `<span class="err">Done with errors: ${ok} saved, ${fail} failed.</span> Try the failed ones individually.`
+    : `<span class="ok">✓ All ${ok} images downloaded.</span> Check your Downloads folder, then upload them back to Claude.`;
+  dlAllBtn.disabled = false;
+  dlAllBtn.textContent = '⬇  Download All Again';
+});
+</script>
+</body>
+</html>

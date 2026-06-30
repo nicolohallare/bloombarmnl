@@ -1,0 +1,2 @@
+# Proxy images from current SiteGround host (only used by downloader.html)
+/images-proxy/*  https://bloombarmnl.com/wp-content/uploads/:splat  200
