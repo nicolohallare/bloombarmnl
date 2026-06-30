@@ -25,12 +25,8 @@
     theme: {
       extend: {
         colors: {
-          paper: '#FAF6EE',
-          sand: '#EDE2D3',
-          stone: '#D9CFC0',
-          ink: '#1A1612',
-          mute: '#8B7E6C',
-          bronze: '#A88860',
+          paper: '#FAF6EE', sand: '#EDE2D3', stone: '#D9CFC0',
+          ink: '#1A1612', mute: '#8B7E6C', bronze: '#A88860',
           line: 'rgba(26,22,18,0.12)',
         },
         fontFamily: {
@@ -73,6 +69,7 @@
   .pill { border-radius: 9999px; }
   .arch-ring { position: relative; }
   .arch-ring::after { content: ''; position: absolute; inset: -2px; border: 1px solid rgba(168, 136, 96, 0.5); border-radius: inherit; pointer-events: none; }
+  .ba-slider { touch-action: none; }
 </style>
 </head>
 <body class="bg-paper">
@@ -84,76 +81,40 @@
       <div class="font-display text-4xl md:text-5xl tracking-[0.15em] font-light">BLOOM</div>
       <div class="text-[10px] tracking-widest-2 text-bronze mt-1">BAR · MNL</div>
     </div>
-
     <div class="text-[10px] tracking-widest-2 uppercase text-mute mt-6 mb-8">Beauty Angels Certified · Pasig, Manila</div>
-
-    <div class="max-w-[280px] mx-auto mb-8">
+    <div class="max-w-[300px] mx-auto mb-8">
       <div class="arch arch-ring">
-        <img src="/images/hero.jpg" alt="Izza Hallare, brow artist at Bloom Bar MNL" class="w-full aspect-[3/4] object-cover" loading="eager" />
+        <img src="/images/hero.jpg" alt="Izza Hallare with a client at Bloom Bar studio" class="w-full aspect-[3/4] object-cover" loading="eager" />
       </div>
     </div>
-
     <h1 class="font-display text-3xl md:text-4xl leading-tight font-light mb-3">
       Unique brows for<br/>unique <em class="italic">individuals.</em>
     </h1>
     <p class="text-mute text-sm mb-2">Microblading · Combination · Powder Brows</p>
     <p class="text-bronze text-sm font-medium mb-8">All treatments ₱10,000 · 2 sessions included</p>
-
     <div class="space-y-3">
-      <a href="https://BloomBarMNL.as.me/" class="pill block bg-ink text-paper py-4 text-base font-medium tracking-wide hover:bg-bronze transition-colors">
-        📅  Book Now
-      </a>
+      <a href="https://BloomBarMNL.as.me/" class="pill block bg-ink text-paper py-4 text-base font-medium tracking-wide hover:bg-bronze transition-colors">📅  Book Now</a>
       <div class="grid grid-cols-2 gap-3">
-        <a href="viber://chat?number=%2B639088190053" class="pill border border-ink/30 text-ink py-4 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors text-center">
-          💜  Viber
-        </a>
-        <a href="https://wa.me/639088190053" class="pill border border-ink/30 text-ink py-4 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors text-center">
-          💚  WhatsApp
-        </a>
+        <a href="viber://chat?number=%2B639088190053" class="pill border border-ink/30 text-ink py-4 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors text-center">💜  Viber</a>
+        <a href="https://wa.me/639088190053" class="pill border border-ink/30 text-ink py-4 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors text-center">💚  WhatsApp</a>
       </div>
-      <a href="tel:+639088190053" class="pill block border border-ink/30 text-ink py-4 text-base tracking-wide hover:bg-ink hover:text-paper transition-colors">
-        📞  Call Izza
-      </a>
-      <a href="https://maps.app.goo.gl/i4gTdbmWUnPDLkJEA" class="pill block border border-ink/30 text-ink py-4 text-base tracking-wide hover:bg-ink hover:text-paper transition-colors">
-        📍  Get Directions
-      </a>
+      <a href="tel:+639088190053" class="pill block border border-ink/30 text-ink py-4 text-base tracking-wide hover:bg-ink hover:text-paper transition-colors">📞  Call Izza</a>
+      <a href="https://maps.app.goo.gl/i4gTdbmWUnPDLkJEA" class="pill block border border-ink/30 text-ink py-4 text-base tracking-wide hover:bg-ink hover:text-paper transition-colors">📍  Get Directions</a>
     </div>
-
     <div class="mt-6 px-5 py-4 bg-sand rounded-2xl text-sm">
       <span class="text-bronze font-medium">First time?</span> <span class="text-ink/85">Send a photo of your bare brows via Viber, WhatsApp, or Instagram for a <em class="italic">free 10-minute consultation</em>.</span>
     </div>
-
     <div class="flex justify-center gap-3 mt-8">
       <a href="https://www.instagram.com/bloombarmnl/" class="pill w-12 h-12 border border-ink/30 flex items-center justify-center hover:bg-ink hover:text-paper transition-colors text-xs tracking-wider" aria-label="Instagram">IG</a>
       <a href="https://www.facebook.com/profile.php?id=100084843514331" class="pill w-12 h-12 border border-ink/30 flex items-center justify-center hover:bg-ink hover:text-paper transition-colors text-xs tracking-wider" aria-label="Facebook">FB</a>
     </div>
-
     <div class="mt-12 text-[10px] tracking-widest-2 uppercase text-mute">Scroll for more ↓</div>
   </div>
 </section>
 
-<!-- BEFORE & AFTER — branded collages -->
+<!-- RECENT CLIENTS — moved up, full-face portraits -->
 <section class="px-5 py-16 md:py-20 bg-sand">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-10">
-      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Before & After ·</div>
-      <h2 class="font-display text-3xl md:text-5xl font-light">See the <em class="italic">transformation.</em></h2>
-      <p class="text-mute text-sm mt-3 max-w-md mx-auto">Healed results from real Bloom Bar clients.</p>
-    </div>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-1.jpg" alt="Before and after microblading - natural look" class="w-full aspect-square object-cover" loading="lazy" /></div>
-      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-2.jpg" alt="Before and after well-shaped brows" class="w-full aspect-square object-cover" loading="lazy" /></div>
-      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-3.jpg" alt="Before and after defined brows" class="w-full aspect-square object-cover" loading="lazy" /></div>
-      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-4.jpg" alt="Before and after lifted brows" class="w-full aspect-square object-cover" loading="lazy" /></div>
-      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-5.jpg" alt="Before and after subtle brows" class="w-full aspect-square object-cover" loading="lazy" /></div>
-      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-6.jpg" alt="Before and after microblade and shade" class="w-full aspect-square object-cover" loading="lazy" /></div>
-    </div>
-  </div>
-</section>
-
-<!-- RECENT WORK GALLERY -->
-<section class="px-5 py-16 md:py-20">
-  <div class="max-w-3xl mx-auto">
+  <div class="max-w-4xl mx-auto">
     <div class="text-center mb-10">
       <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Recent Clients ·</div>
       <h2 class="font-display text-3xl md:text-5xl font-light">Brows on <em class="italic">real faces.</em></h2>
@@ -167,7 +128,8 @@
       <div class="arch-soft"><img src="/images/blaire.jpg" alt="Brow client Blaire" class="w-full aspect-[3/4] object-cover object-top" loading="lazy" /></div>
       <div class="arch-soft"><img src="/images/faye.jpg" alt="Brow client Faye" class="w-full aspect-[3/4] object-cover object-top" loading="lazy" /></div>
       <div class="arch-soft"><img src="/images/gen.jpg" alt="Brow client Gen" class="w-full aspect-[3/4] object-cover object-top" loading="lazy" /></div>
-      <div class="arch-soft hidden md:block"><img src="/images/jang.jpg" alt="Brow client Jang" class="w-full aspect-[3/4] object-cover object-top" loading="lazy" /></div>
+      <div class="arch-soft"><img src="/images/jang.jpg" alt="Brow client Jang" class="w-full aspect-[3/4] object-cover object-top" loading="lazy" /></div>
+      <div class="arch-soft hidden md:block"><img src="/images/kathleen.jpg" alt="Brow client Kathleen" class="w-full aspect-[3/4] object-cover object-top" loading="lazy" /></div>
     </div>
     <div class="text-center mt-8">
       <a href="https://www.instagram.com/bloombarmnl/" class="pill inline-block border border-ink/30 text-ink px-7 py-3 text-sm tracking-wide hover:bg-ink hover:text-paper transition-colors">See more on Instagram</a>
@@ -175,50 +137,88 @@
   </div>
 </section>
 
+<!-- BEFORE & AFTER — interactive drag slider + collages -->
+<section class="px-5 py-16 md:py-20">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Before & After ·</div>
+      <h2 class="font-display text-3xl md:text-5xl font-light mb-3">See the <em class="italic">transformation.</em></h2>
+      <p class="text-mute text-sm mt-2 max-w-md mx-auto">Drag the slider to compare. Real healed results from real clients.</p>
+    </div>
+
+    <!-- INTERACTIVE DRAG SLIDER -->
+    <div id="ba-slider" class="ba-slider relative w-full aspect-[12/5] overflow-hidden cursor-ew-resize select-none bg-ink rounded-2xl mb-6 max-w-2xl mx-auto">
+      <!-- AFTER (full background) -->
+      <img src="/images/ba-slider-after.jpg" alt="After microblading" class="absolute inset-0 w-full h-full object-cover" draggable="false" />
+      <div class="absolute bottom-3 right-3 pill bg-paper text-ink px-3 py-1.5 text-[10px] tracking-widest-2 uppercase">After</div>
+
+      <!-- BEFORE (clipped from right) -->
+      <div id="ba-before" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
+        <img src="/images/ba-slider-before.jpg" alt="Before microblading" class="absolute inset-0 w-full h-full object-cover" draggable="false" />
+        <div class="absolute bottom-3 left-3 pill bg-ink text-paper px-3 py-1.5 text-[10px] tracking-widest-2 uppercase">Before</div>
+      </div>
+
+      <!-- HANDLE -->
+      <div id="ba-handle" class="absolute top-0 bottom-0 w-0.5 bg-paper pointer-events-none" style="left: 50%; transform: translateX(-50%);">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-paper rounded-full flex items-center justify-center shadow-xl">
+          <svg class="w-5 h-5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- MORE TRANSFORMATIONS — static collage grid -->
+    <p class="text-center text-[10px] tracking-widest-2 uppercase text-mute mt-10 mb-5">· More transformations ·</p>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-2.jpg" alt="Before and after well-shaped brows" class="w-full aspect-square object-cover" loading="lazy" /></div>
+      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-3.jpg" alt="Before and after defined brows" class="w-full aspect-square object-cover" loading="lazy" /></div>
+      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-4.jpg" alt="Before and after lifted brows" class="w-full aspect-square object-cover" loading="lazy" /></div>
+      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-5.jpg" alt="Before and after subtle brows" class="w-full aspect-square object-cover" loading="lazy" /></div>
+      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-6.jpg" alt="Before and after microblade and shade" class="w-full aspect-square object-cover" loading="lazy" /></div>
+      <div class="rounded-2xl overflow-hidden"><img src="/images/ba-1.jpg" alt="Before and after natural brows" class="w-full aspect-square object-cover" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
-<section class="px-5 py-16 md:py-20 max-w-3xl mx-auto bg-sand md:rounded-3xl">
-  <div class="text-center mb-10">
-    <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Treatments ·</div>
-    <h2 class="font-display text-3xl md:text-5xl font-light mb-4">Three techniques.</h2>
-    <p class="font-display text-2xl text-bronze italic">All ₱10,000 · 2 sessions included</p>
-  </div>
-
-  <div class="space-y-4">
-    <div class="bg-paper border border-stone rounded-3xl p-6">
-      <h3 class="font-display text-2xl font-light mb-1">Microblading</h3>
-      <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Normal skin · Natural daytime look</p>
-      <p class="text-ink/80 leading-relaxed text-[15px]">Pigment placed in fine, hairlike strokes. For those who struggle with sparser brows and want the most natural daytime look.</p>
+<section class="px-5 py-16 md:py-20 bg-sand">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Treatments ·</div>
+      <h2 class="font-display text-3xl md:text-5xl font-light mb-4">Three techniques.</h2>
+      <p class="font-display text-2xl text-bronze italic">All ₱10,000 · 2 sessions included</p>
     </div>
-
-    <div class="bg-paper border-2 border-bronze rounded-3xl p-6 relative">
-      <div class="absolute -top-3 left-6 bg-bronze text-paper text-[10px] tracking-widest-2 uppercase px-3 py-1 rounded-full font-medium">Izza's favorite</div>
-      <h3 class="font-display text-2xl font-light mb-1">Combination Brows</h3>
-      <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Oily skin · Medium to bold definition</p>
-      <p class="text-ink/80 leading-relaxed text-[15px]">Microblading plus shading for added density. Perfect for those who like to fill in their brows daily and prefer a more defined look.</p>
+    <div class="space-y-4">
+      <div class="bg-paper border border-stone rounded-3xl p-6">
+        <h3 class="font-display text-2xl font-light mb-1">Microblading</h3>
+        <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Normal skin · Natural daytime look</p>
+        <p class="text-ink/80 leading-relaxed text-[15px]">Pigment placed in fine, hairlike strokes. For those who struggle with sparser brows and want the most natural daytime look.</p>
+      </div>
+      <div class="bg-paper border-2 border-bronze rounded-3xl p-6 relative">
+        <div class="absolute -top-3 left-6 bg-bronze text-paper text-[10px] tracking-widest-2 uppercase px-3 py-1 rounded-full font-medium">Izza's favorite</div>
+        <h3 class="font-display text-2xl font-light mb-1">Combination Brows</h3>
+        <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Oily skin · Medium to bold definition</p>
+        <p class="text-ink/80 leading-relaxed text-[15px]">Microblading plus shading for added density. Perfect for those who like to fill in their brows daily and prefer a more defined look.</p>
+      </div>
+      <div class="bg-paper border border-stone rounded-3xl p-6">
+        <h3 class="font-display text-2xl font-light mb-1">Powder Brows</h3>
+        <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Oily skin · Bold makeup-look finish</p>
+        <p class="text-ink/80 leading-relaxed text-[15px]">Soft shaded effect like powder makeup. For clients who prefer a bolder, more defined look.</p>
+      </div>
     </div>
-
-    <div class="bg-paper border border-stone rounded-3xl p-6">
-      <h3 class="font-display text-2xl font-light mb-1">Powder Brows</h3>
-      <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Oily skin · Bold makeup-look finish</p>
-      <p class="text-ink/80 leading-relaxed text-[15px]">Soft shaded effect like powder makeup. For clients who prefer a bolder, more defined look.</p>
+    <div class="bg-paper border border-bronze/30 rounded-3xl p-6 mt-6 text-center">
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-2">Required First Step</div>
+      <p class="text-ink/85 leading-relaxed">Every brow treatment starts with a <span class="text-bronze font-medium">free 10-minute consultation</span>. Send Izza a photo of your bare brows via Viber, WhatsApp, Instagram, or email.</p>
     </div>
-  </div>
-
-  <div class="bg-paper border border-bronze/30 rounded-3xl p-6 mt-6 text-center">
-    <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-2">Required First Step</div>
-    <p class="text-ink/85 leading-relaxed">Every brow treatment starts with a <span class="text-bronze font-medium">free 10-minute consultation</span>. Send Izza a photo of your bare brows via Viber, WhatsApp, Instagram, or email.</p>
-  </div>
-
-  <div class="bg-paper border border-stone rounded-3xl p-6 mt-4 flex justify-between items-center">
-    <div>
-      <h3 class="font-display text-xl font-light">Annual Brow Retouch</h3>
-      <p class="text-mute text-xs uppercase tracking-widest-2 mt-1">Only for Bloom Bar clients · 1 session</p>
+    <div class="bg-paper border border-stone rounded-3xl p-6 mt-4 flex justify-between items-center">
+      <div>
+        <h3 class="font-display text-xl font-light">Annual Brow Retouch</h3>
+        <p class="text-mute text-xs uppercase tracking-widest-2 mt-1">Only for Bloom Bar clients · 1 session</p>
+      </div>
+      <div class="font-display text-2xl text-bronze flex-shrink-0">₱5,000</div>
     </div>
-    <div class="font-display text-2xl text-bronze flex-shrink-0">₱5,000</div>
-  </div>
-
-  <div class="text-center mt-10">
-    <a href="https://BloomBarMNL.as.me/" class="pill inline-block bg-ink text-paper px-9 py-4 font-medium tracking-wide hover:bg-bronze transition-colors">📅 Book Now</a>
+    <div class="text-center mt-10">
+      <a href="https://BloomBarMNL.as.me/" class="pill inline-block bg-ink text-paper px-9 py-4 font-medium tracking-wide hover:bg-bronze transition-colors">📅 Book Now</a>
+    </div>
   </div>
 </section>
 
@@ -256,20 +256,13 @@
   <div class="max-w-3xl mx-auto text-center">
     <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Meet Your Artist ·</div>
     <h2 class="font-display text-3xl md:text-5xl font-light mb-8">Izza <em class="italic">Hallare.</em></h2>
-
-    <div class="max-w-[300px] mx-auto mb-8">
+    <div class="max-w-[280px] mx-auto mb-8">
       <div class="arch arch-ring">
-        <img src="/images/about.jpg" alt="Izza Hallare with a client at Bloom Bar studio" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+        <img src="/images/about.jpg" alt="Izza Hallare, Beauty Angels-certified PMU artist" class="w-full aspect-[3/4] object-cover" loading="lazy" />
       </div>
     </div>
-
-    <p class="text-mute leading-relaxed text-lg mb-4 max-w-lg mx-auto">
-      A Beauty Angels-certified brow artist working out of Valle Verde, Pasig.
-    </p>
-    <p class="text-mute leading-relaxed mb-8 max-w-lg mx-auto">
-      Her standard is simple: brows so natural that strangers compliment your face, not your brows. Every tool single-use, every workspace sterilized between clients.
-    </p>
-
+    <p class="text-mute leading-relaxed text-lg mb-4 max-w-lg mx-auto">A Beauty Angels-certified brow artist working out of Valle Verde, Pasig.</p>
+    <p class="text-mute leading-relaxed mb-8 max-w-lg mx-auto">Her standard is simple: brows so natural that strangers compliment your face, not your brows. Every tool single-use, every workspace sterilized between clients.</p>
     <div class="inline-flex items-center gap-3 text-[10px] tracking-widest-2 uppercase text-ink border border-bronze/40 rounded-full px-5 py-2.5">
       <span class="text-bronze">✦</span> Beauty Angels Academy Certified
     </div>
@@ -327,7 +320,6 @@
 <section class="px-5 py-16 md:py-20 max-w-md mx-auto text-center">
   <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Visit Us ·</div>
   <h2 class="font-display text-3xl md:text-5xl font-light mb-10">Find <em class="italic">Bloom Bar.</em></h2>
-
   <div class="space-y-7 text-left">
     <div>
       <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-1">Studio</div>
@@ -346,7 +338,6 @@
       <a href="mailto:bloombarmnl@gmail.com" class="text-lg hover:text-bronze">bloombarmnl@gmail.com</a>
     </div>
   </div>
-
   <div class="mt-10 space-y-3">
     <a href="https://BloomBarMNL.as.me/" class="pill block bg-ink text-paper py-4 font-medium tracking-wide hover:bg-bronze transition-colors">📅 Book Now</a>
     <a href="https://maps.app.goo.gl/i4gTdbmWUnPDLkJEA" class="pill block border border-ink/30 text-ink py-4 tracking-wide hover:bg-ink hover:text-paper transition-colors">📍 Get Directions</a>
@@ -366,17 +357,29 @@
 
 <!-- MOBILE STICKY BAR -->
 <div class="fixed bottom-0 left-0 right-0 bg-paper border-t border-stone text-ink grid grid-cols-3 z-50">
-  <a href="viber://chat?number=%2B639088190053" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase border-r border-stone">
-    <span class="text-base">💬</span> Chat
-  </a>
-  <a href="tel:+639088190053" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase border-r border-stone">
-    <span class="text-base">📞</span> Call
-  </a>
-  <a href="https://BloomBarMNL.as.me/" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase bg-ink text-paper font-medium">
-    <span class="text-base">📅</span> Book
-  </a>
+  <a href="viber://chat?number=%2B639088190053" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase border-r border-stone"><span class="text-base">💬</span> Chat</a>
+  <a href="tel:+639088190053" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase border-r border-stone"><span class="text-base">📞</span> Call</a>
+  <a href="https://BloomBarMNL.as.me/" class="py-4 flex flex-col items-center gap-1 text-[11px] tracking-widest-2 uppercase bg-ink text-paper font-medium"><span class="text-base">📅</span> Book</a>
 </div>
 <div class="h-20"></div>
 
+<script>
+// DRAG-TO-COMPARE SLIDER
+const slider = document.getElementById('ba-slider');
+const before = document.getElementById('ba-before');
+const handle = document.getElementById('ba-handle');
+let dragging = false;
+function updateSlider(clientX) {
+  const rect = slider.getBoundingClientRect();
+  let pos = ((clientX - rect.left) / rect.width) * 100;
+  pos = Math.max(0, Math.min(100, pos));
+  before.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+  handle.style.left = `${pos}%`;
+}
+slider.addEventListener('pointerdown', e => { dragging = true; slider.setPointerCapture(e.pointerId); updateSlider(e.clientX); });
+slider.addEventListener('pointermove', e => { if (dragging) updateSlider(e.clientX); });
+slider.addEventListener('pointerup', () => dragging = false);
+slider.addEventListener('pointercancel', () => dragging = false);
+</script>
 </body>
 </html>
