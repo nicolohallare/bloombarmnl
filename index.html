@@ -75,6 +75,8 @@
   .btn-dark:hover { background: #A88860; }
   .btn-outline { display: block; background: transparent; color: #1A1612; border: 1.5px solid #1A1612; border-radius: 9999px; padding: 0.9rem 1.5rem; font-weight: 500; letter-spacing: 0.18em; text-align: center; text-transform: uppercase; font-size: 0.8125rem; transition: all 0.2s; }
   .btn-outline:hover { background: #1A1612; color: #FFFFFF; }
+  .reviews-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+  .reviews-scroll::-webkit-scrollbar { display: none; }
 </style>
 </head>
 <body class="bg-paper">
@@ -98,9 +100,15 @@
 
     <!-- SOCIAL ICONS -->
     <div class="flex justify-center gap-2.5 mb-5">
-      <a href="viber://chat?number=%2B639088190053" class="pill w-11 h-11 border border-ink/40 flex items-center justify-center hover:bg-ink hover:text-white transition-colors text-[10px] tracking-widest-2 uppercase" aria-label="Viber">V</a>
-      <a href="https://wa.me/639088190053" class="pill w-11 h-11 border border-ink/40 flex items-center justify-center hover:bg-ink hover:text-white transition-colors text-[10px] tracking-widest-2 uppercase" aria-label="WhatsApp">W</a>
-      <a href="https://www.instagram.com/bloombarmnl/" class="pill w-11 h-11 border border-ink/40 flex items-center justify-center hover:bg-ink hover:text-white transition-colors text-[10px] tracking-widest-2 uppercase" aria-label="Instagram">IG</a>
+      <a href="viber://chat?number=%2B639088190053" class="pill w-11 h-11 border border-ink/40 flex items-center justify-center hover:bg-ink hover:text-white text-ink transition-colors" aria-label="Viber">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]"><path d="M11.4.02C9.5.05 5.3.36 3 2.5 1.3 4.2.7 6.7.6 9.8s-.2 8.9 5.5 10.5v2.4s0 1 .6 1.2c.8.2 1.3-.5 2-1.3.4-.5 1-1.1 1.4-1.6 3.9.3 6.8-.4 7.2-.5.8-.3 5.2-.8 5.9-6.7.7-6-.4-9.8-2.3-11.5-.6-.6-3-2.3-8.4-2.3 0 0-.4 0-1.3 0zm.1 1.7c.7 0 1.1 0 1.1 0 4.6.1 6.7 1.4 7.3 1.9 1.7 1.4 2.5 4.9 1.9 9.9-.6 4.9-4.2 5.2-4.8 5.4-.3.1-2.9.7-6.2.5 0 0-2.4 2.9-3.2 3.7-.1.1-.3.2-.4.1-.1 0-.2-.2-.2-.4V19c-4.8-1.3-4.5-6.3-4.4-8.9C2.6 7.4 3.2 5.3 4.6 3.9c2-1.8 5.6-2 7.1-2h-.2zM12 5c-.3 0-.3.4 0 .4 2.3 0 4.2 1.5 4.2 4 0 .3.4.3.4 0-.1-2.7-2-4.4-4.6-4.4zm0 1.3c-.3 0-.3.4 0 .5 1.8.1 2.7 1 2.8 2.8 0 .3.4.3.4 0-.1-2-1.2-3.2-3.2-3.3zm0 1.4c-.3 0-.3.4 0 .4.8 0 1.5.3 1.5 1.4 0 .3.4.3.4 0 0-1.3-.9-1.8-1.9-1.8zM8 8c-.4 0-.7.2-.8.6 0 0-.6.4-.7 1.7 0 1.4 1.1 2.7 1.2 2.9.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4-.3-.1-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.2-.2-.7-1.6-1-2.2-.2-.5-.5-.5-.7-.5-.1 0-.4 0-.6 0z"/></svg>
+      </a>
+      <a href="https://wa.me/639088190053" class="pill w-11 h-11 border border-ink/40 flex items-center justify-center hover:bg-ink hover:text-white text-ink transition-colors" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5-.2 0-.4 0-.6 0-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.3 1.3 4.7L2 22l5.4-1.4c1.4.8 3 1.2 4.6 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.5 0-3-.4-4.2-1.1l-.3-.2-3.2.8.8-3.1-.2-.3c-.9-1.4-1.3-2.9-1.3-4.4 0-4.5 3.7-8.2 8.2-8.2 2.2 0 4.3.9 5.8 2.4 1.5 1.5 2.4 3.6 2.4 5.8 0 4.5-3.7 8.3-8.2 8.3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/bloombarmnl/" class="pill w-11 h-11 border border-ink/40 flex items-center justify-center hover:bg-ink hover:text-white text-ink transition-colors" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg>
+      </a>
     </div>
 
     <!-- TAGLINES -->
@@ -181,30 +189,38 @@
 </section>
 
 <!-- REVIEWS -->
-<section class="px-5 py-16 md:py-20 bg-sand">
-  <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-10">
+<section class="py-16 md:py-20 bg-sand overflow-hidden">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-10 px-5">
       <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· What Clients Say ·</div>
       <h2 class="font-display text-3xl md:text-5xl font-light mb-3">"I found <em class="italic">the one.</em>"</h2>
       <div class="flex items-center justify-center gap-2 text-bronze text-lg">★ ★ ★ ★ ★</div>
       <div class="text-xs tracking-widest-2 uppercase text-mute mt-2">4.9 on Google · 80+ reviews</div>
     </div>
-    <div class="space-y-4">
-      <div class="bg-paper border border-stone rounded-3xl p-6">
+
+    <!-- Horizontal scroll carousel -->
+    <div class="reviews-scroll flex gap-4 overflow-x-auto snap-x snap-mandatory pb-6 px-5 md:px-8">
+      <div class="flex-shrink-0 w-[85%] md:w-[400px] snap-center bg-paper border border-stone rounded-3xl p-6">
         <div class="flex gap-0.5 mb-3 text-bronze">★ ★ ★ ★ ★</div>
         <p class="text-ink/85 leading-relaxed mb-4 italic font-display text-lg">"I've had several microblading procedures done by famous artists, but Izza was the first to truly understand my brows. I've found THE one."</p>
         <div class="text-[11px] tracking-widest-2 uppercase text-bronze">— Rachel Flameno</div>
       </div>
-      <div class="bg-paper border border-stone rounded-3xl p-6">
+      <div class="flex-shrink-0 w-[85%] md:w-[400px] snap-center bg-paper border border-stone rounded-3xl p-6">
         <div class="flex gap-0.5 mb-3 text-bronze">★ ★ ★ ★ ★</div>
         <p class="text-ink/85 leading-relaxed mb-4 italic font-display text-lg">"I was scared they wouldn't turn out natural. Izza's work stood out the most. Quality work, clean & beautiful place, kind and talented artist."</p>
         <div class="text-[11px] tracking-widest-2 uppercase text-bronze">— Krishane Abalos</div>
       </div>
-      <div class="bg-paper border border-stone rounded-3xl p-6">
+      <div class="flex-shrink-0 w-[85%] md:w-[400px] snap-center bg-paper border border-stone rounded-3xl p-6">
         <div class="flex gap-0.5 mb-3 text-bronze">★ ★ ★ ★ ★</div>
         <p class="text-ink/85 leading-relaxed mb-4 italic font-display text-lg">"She discusses everything in detail before the procedure. You can't go wrong trusting your eyebrows to a certified artist."</p>
         <div class="text-[11px] tracking-widest-2 uppercase text-bronze">— Mary Javier</div>
       </div>
+      <!-- Add more reviews here as they come in -->
+    </div>
+
+    <div class="text-center px-5">
+      <div class="text-[10px] tracking-widest-2 uppercase text-mute mb-5">← swipe for more →</div>
+      <a href="https://maps.app.goo.gl/i4gTdbmWUnPDLkJEA" target="_blank" rel="noopener" class="pill inline-block border border-ink/40 text-ink px-7 py-3 text-sm tracking-wide hover:bg-ink hover:text-white transition-colors">Read all reviews on Google →</a>
     </div>
   </div>
 </section>
@@ -217,19 +233,17 @@
       <h2 class="font-display text-3xl md:text-5xl font-light">Three techniques.</h2>
     </div>
     <div class="space-y-4">
-      <div class="bg-paper border border-stone rounded-3xl p-6">
+      <div class="bg-paper border-2 border-ink rounded-3xl p-6">
         <h3 class="font-display text-2xl font-light mb-1">Microblading</h3>
         <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Normal skin · Natural daytime look</p>
         <p class="text-ink/80 leading-relaxed text-[15px]">Pigment placed in fine, hairlike strokes. For those who struggle with sparser brows and want the most natural daytime look.</p>
       </div>
-      <!-- SIGNATURE — dark ink styling, no more brown -->
-      <div class="bg-paper border-2 border-ink rounded-3xl p-6 relative">
-        <div class="absolute -top-3 left-6 bg-ink text-paper text-[10px] tracking-widest-2 uppercase px-3 py-1 rounded-full font-medium">Signature</div>
+      <div class="bg-paper border-2 border-ink rounded-3xl p-6">
         <h3 class="font-display text-2xl font-light mb-1">Combination Brows</h3>
         <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Oily skin · Medium to bold definition</p>
         <p class="text-ink/80 leading-relaxed text-[15px]">Microblading plus shading for added density. Perfect for those who like to fill in their brows daily and prefer a more defined look.</p>
       </div>
-      <div class="bg-paper border border-stone rounded-3xl p-6">
+      <div class="bg-paper border-2 border-ink rounded-3xl p-6">
         <h3 class="font-display text-2xl font-light mb-1">Powder Brows</h3>
         <p class="text-mute text-xs uppercase tracking-widest-2 mb-3">Dry to Oily skin · Bold makeup-look finish</p>
         <p class="text-ink/80 leading-relaxed text-[15px]">Soft shaded effect like powder makeup. For clients who prefer a bolder, more defined look.</p>
@@ -339,7 +353,7 @@
 <!-- VISIT US -->
 <section class="px-5 py-16 md:py-20 max-w-md mx-auto text-center">
   <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Visit Us ·</div>
-  <h2 class="font-display text-3xl md:text-5xl font-light mb-10">Find <em class="italic">Bloom Bar.</em></h2>
+  <h2 class="font-display text-3xl md:text-5xl font-light mb-10">Find <em class="italic">Me.</em></h2>
   <div class="space-y-7 text-left">
     <div>
       <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-1">Studio</div>
@@ -347,7 +361,7 @@
     </div>
     <div>
       <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-1">Hours</div>
-      <div class="text-lg">Monday – Friday<br/>9:00 AM – 5:00 PM</div>
+      <div class="text-lg">Strictly by Appointment</div>
     </div>
     <div>
       <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-1">Phone · Viber · WhatsApp</div>
@@ -371,8 +385,12 @@
   </div>
   <div class="text-[9px] tracking-widest-2 text-bronze mb-6">Brows · Lips</div>
   <div class="flex justify-center gap-3 mb-6">
-    <a href="https://www.instagram.com/bloombarmnl/" class="pill w-11 h-11 border border-ink/30 flex items-center justify-center hover:bg-ink hover:text-paper transition-colors text-xs tracking-wider" aria-label="Instagram">IG</a>
-    <a href="https://www.facebook.com/profile.php?id=100084843514331" class="pill w-11 h-11 border border-ink/30 flex items-center justify-center hover:bg-ink hover:text-paper transition-colors text-xs tracking-wider" aria-label="Facebook">FB</a>
+    <a href="https://www.instagram.com/bloombarmnl/" class="pill w-10 h-10 border border-ink/30 flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100084843514331" class="pill w-10 h-10 border border-ink/30 flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M13.5 21.9v-8.4h2.8l.4-3.3h-3.2V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.6c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.4v2.4H7.3v3.3h2.8v8.4h3.4z"/></svg>
+    </a>
   </div>
   <div class="text-[10px] tracking-widest-2 uppercase text-mute">© 2026 Bloom Bar MNL</div>
 </footer>
