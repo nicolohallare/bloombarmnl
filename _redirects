@@ -1,2 +1,44 @@
-# Proxy images from current SiteGround host (only used by downloader.html)
-/images-proxy/*  https://bloombarmnl.com/wp-content/uploads/:splat  200
+# Preserve SEO from old WordPress URLs
+# Format: from-path to-path status-code
+# 301 = permanent redirect (best for SEO)
+
+# Old service pages → services anchor on Acuity
+/services         https://bloombarmnl.as.me/schedule/08ee4b93   301!
+/services/*       https://bloombarmnl.as.me/schedule/08ee4b93   301!
+/microblading     https://bloombarmnl.as.me/schedule/08ee4b93   301!
+/powder-brows     https://bloombarmnl.as.me/schedule/08ee4b93   301!
+/combo-brows      https://bloombarmnl.as.me/schedule/08ee4b93   301!
+/rates            https://bloombarmnl.as.me/schedule/08ee4b93   301!
+/pricing          https://bloombarmnl.as.me/schedule/08ee4b93   301!
+/book             https://bloombarmnl.as.me/schedule/08ee4b93   301!
+/booking          https://bloombarmnl.as.me/schedule/08ee4b93   301!
+/appointment      https://bloombarmnl.as.me/schedule/08ee4b93   301!
+
+# Info pages → anchors on new single-page site
+/about            /#about                                        301!
+/about-us         /#about                                        301!
+/about-izza       /#about                                        301!
+/contact          /#faq                                          301!
+/contact-us       /#faq                                          301!
+/faq              /#faq                                          301!
+/faqs             /#faq                                          301!
+/gallery          /#work                                         301!
+/portfolio        /#work                                         301!
+/work             /#work                                         301!
+/before-after     /#work                                         301!
+/reviews          /#work                                         301!
+/testimonials     /#work                                         301!
+
+# Block WordPress admin/system paths (return 410 gone)
+/wp-admin         /                                              410
+/wp-admin/*       /                                              410
+/wp-login.php     /                                              410
+/wp-content/*     /                                              404
+/wp-includes/*    /                                              404
+/xmlrpc.php       /                                              410
+/feed             /                                              301
+/feed/*           /                                              301
+/?feed=*          /                                              301
+
+# Catch-all: any other unknown URL → homepage (soft landing)
+/*                /                                              301
