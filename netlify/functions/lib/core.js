@@ -14,6 +14,7 @@ export const env = () => ({
   from:     process.env.BOOKING_FROM_EMAIL  || 'Bloom Bar MNL <bookings@bloombarmnl.com>',
   owner:    process.env.OWNER_EMAIL         || 'bloombarmnl@gmail.com',
   site:     process.env.SITE_URL            || 'https://bloombarmnl.com',
+  studio:   process.env.STUDIO_URL          || 'https://bloombar-studio.vercel.app',
 })
 
 // ─── Supabase REST ───────────────────────────────────────────────────────────

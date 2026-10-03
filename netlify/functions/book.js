@@ -98,7 +98,7 @@ export default async (req) => {
     if (!booking) return oops('Could not save your request. Please try again.', 500)
 
     // ── Emails (never block the booking) ───────────────────────────────────
-    const { owner, site } = env()
+    const { owner, studio } = env()
 
     if (email) {
       await sendEmail({
@@ -140,8 +140,8 @@ export default async (req) => {
           <tr><td style="color:#8B7E6C;">Found you via</td><td>${booking.source || '—'}</td></tr>
         </table>
         ${booking.notes ? `<p style="margin-top:14px;"><span style="color:#8B7E6C;">Notes</span><br/>${booking.notes}</p>` : ''}
-        <p style="margin-top:22px;">Open your studio app to confirm or decline this request.</p>
-        <p style="margin-top:6px;"><a href="${site}" style="color:#A88860;">${site.replace(/^https?:\/\//, '')}</a></p>
+        <p style="margin-top:22px;">Tap below, then go to Bookings to confirm or decline.</p>
+        <p style="margin-top:6px;"><a href="${studio}" style="display:inline-block;background:#1A1612;color:#FFFFFF;text-decoration:none;padding:10px 20px;border-radius:999px;font-size:14px;">Open studio app</a></p>
       `),
     })
 
