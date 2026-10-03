@@ -1,0 +1,15 @@
+# Bloom Bar MNL — static site plus the booking functions.
+# The site itself still has no build step.
+
+[build]
+  publish   = "."
+  functions = "netlify/functions"
+  command   = ""
+
+[functions]
+  node_bundler = "esbuild"
+
+# Sends confirmation, decline and reminder emails as they become due.
+# Reminders themselves only go out at 9:00 AM Manila.
+[functions."booking-mailer"]
+  schedule = "*/15 * * * *"

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book an Appointment | Bloom Bar MNL</title>
+<meta name="description" content="Request your microblading, combination or powder brow appointment with Izza Hallare at Bloom Bar MNL, Valle Verde, Pasig City." />
+<meta name="robots" content="noindex" />
+<link rel="canonical" href="https://bloombarmnl.com/book" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFFFFF'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-family='Georgia,serif' font-size='70' fill='%231A1612' font-weight='300'%3EB%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: '#FFFFFF', sand: '#DEDACF', stone: '#C4BFB2',
+          ink: '#1A1612', mute: '#8B7E6C', bronze: '#A88860',
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        },
+        letterSpacing: { 'widest-2': '0.3em' },
+      },
+    },
+  };
+</script>
+
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; background: #FFFFFF; color: #1A1612; }
+  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .pill { border-radius: 9999px; }
+  .btn-dark { display:block; width:100%; background:#1A1612; color:#fff; border-radius:9999px; padding:1rem 1.5rem;
+              font-weight:500; letter-spacing:.15em; text-align:center; text-transform:uppercase; font-size:.8125rem;
+              transition:background-color .2s; }
+  .btn-dark:hover:not(:disabled) { background:#A88860; }
+  .btn-dark:disabled { opacity:.4; cursor:not-allowed; }
+  .btn-quiet { display:inline-flex; align-items:center; gap:.4rem; color:#8B7E6C; font-size:.8125rem;
+               letter-spacing:.05em; transition:color .2s; }
+  .btn-quiet:hover { color:#1A1612; }
+  .card-pick { width:100%; text-align:left; border:1.5px solid #C4BFB2; border-radius:1.25rem; padding:1.1rem 1.25rem;
+               background:#fff; transition:all .2s; }
+  .card-pick:hover { border-color:#1A1612; transform:translateY(-1px); box-shadow:0 6px 18px rgba(26,22,18,.07); }
+  .card-pick[aria-pressed="true"] { border-color:#1A1612; background:#1A1612; color:#fff; }
+  .card-pick[aria-pressed="true"] .sub { color:rgba(255,255,255,.72); }
+  .day { aspect-ratio:1; border-radius:9999px; display:flex; align-items:center; justify-content:center;
+         font-size:.875rem; transition:all .15s; }
+  .day-open { border:1px solid #C4BFB2; color:#1A1612; }
+  .day-open:hover { border-color:#1A1612; background:#DEDACF; }
+  .day-open[aria-pressed="true"] { background:#1A1612; color:#fff; border-color:#1A1612; }
+  .day-off { color:#C4BFB2; }
+  .slot { border:1.5px solid #C4BFB2; border-radius:9999px; padding:.8rem .5rem; font-size:.875rem; transition:all .2s; }
+  .slot:hover { border-color:#1A1612; }
+  .slot[aria-pressed="true"] { background:#1A1612; color:#fff; border-color:#1A1612; }
+  .field { width:100%; border:1px solid #C4BFB2; border-radius:.9rem; padding:.85rem 1rem; font-size:.95rem;
+           background:#fff; color:#1A1612; outline:none; transition:border-color .2s; }
+  .field:focus { border-color:#1A1612; }
+  .field::placeholder { color:#C4BFB2; }
+  .lbl { display:block; font-size:.625rem; letter-spacing:.2em; text-transform:uppercase; color:#8B7E6C; margin-bottom:.4rem; }
+  .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .spin { animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .fade { animation: fade .3s ease both; }
+  @keyframes fade { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+</style>
+</head>
+<body class="bg-paper">
+
+<!-- HEADER -->
+<header class="px-5 pt-8 pb-6 text-center border-b border-sand">
+  <a href="/" class="inline-block max-w-[190px] mx-auto">
+    <img src="/images/logo-black.png" alt="Bloom Bar Beauty Studio" class="w-full" />
+  </a>
+  <div class="text-[10px] tracking-widest-2 uppercase text-mute mt-3">Valle Verde, Pasig &middot; By appointment</div>
+</header>
+
+<main class="px-5 py-10 max-w-md mx-auto">
+
+  <!-- STEPS -->
+  <div id="steps" class="flex items-center justify-center gap-2 mb-9">
+    <span class="h-[3px] w-10 rounded-full bg-ink" data-step="1"></span>
+    <span class="h-[3px] w-10 rounded-full bg-stone" data-step="2"></span>
+    <span class="h-[3px] w-10 rounded-full bg-stone" data-step="3"></span>
+  </div>
+
+  <!-- ─── STEP 1 · TREATMENT ─────────────────────────────────────── -->
+  <section id="step1" class="fade">
+    <h1 class="font-display text-3xl font-light text-center mb-2">Choose your <em class="italic">treatment.</em></h1>
+    <p class="text-mute text-sm text-center mb-8">Each appointment runs about four hours.</p>
+
+    <div id="services" class="space-y-3">
+      <div class="text-center py-10 text-mute text-sm">
+        <span class="spin inline-block w-5 h-5 border-2 border-stone border-t-ink rounded-full align-middle"></span>
+      </div>
+    </div>
+
+    <div class="mt-8 px-5 py-4 bg-sand rounded-2xl text-sm leading-relaxed">
+      <span class="text-ink font-medium">First time?</span>
+      <span class="text-ink/80">Izza needs a quick look at your bare brows before your appointment. You can
+      request a slot here and send the photo after, or message her first on
+      <a href="viber://chat?number=%2B639088190053" class="underline">Viber</a> or
+      <a href="https://wa.me/639088190053" class="underline">WhatsApp</a>.</span>
+    </div>
+  </section>
+
+  <!-- ─── STEP 2 · DATE & TIME ───────────────────────────────────── -->
+  <section id="step2" class="hidden">
+    <button class="btn-quiet mb-5" data-back="1">&larr; Treatment</button>
+    <h1 class="font-display text-3xl font-light text-center mb-2">Pick a <em class="italic">date.</em></h1>
+    <p id="pickedService" class="text-mute text-sm text-center mb-7"></p>
+
+    <div class="flex items-center justify-between mb-4">
+      <button id="prevMonth" class="pill w-10 h-10 border border-stone text-ink disabled:opacity-25" aria-label="Previous month">&lsaquo;</button>
+      <div id="monthLabel" class="font-display text-xl"></div>
+      <button id="nextMonth" class="pill w-10 h-10 border border-stone text-ink disabled:opacity-25" aria-label="Next month">&rsaquo;</button>
+    </div>
+
+    <div class="grid grid-cols-7 gap-1 text-center text-[10px] tracking-widest uppercase text-mute mb-2">
+      <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+    </div>
+    <div id="calendar" class="grid grid-cols-7 gap-1"></div>
+
+    <div id="slotsWrap" class="mt-8 hidden">
+      <div class="text-[10px] tracking-widest-2 uppercase text-mute text-center mb-3" id="slotsLabel"></div>
+      <div id="slots" class="grid grid-cols-2 gap-3"></div>
+    </div>
+
+    <p id="calHint" class="text-center text-mute text-xs mt-7"></p>
+  </section>
+
+  <!-- ─── STEP 3 · DETAILS ───────────────────────────────────────── -->
+  <section id="step3" class="hidden">
+    <button class="btn-quiet mb-5" data-back="2">&larr; Date &amp; time</button>
+    <h1 class="font-display text-3xl font-light text-center mb-2">Your <em class="italic">details.</em></h1>
+
+    <div id="summary" class="bg-sand rounded-2xl px-5 py-4 text-center my-7"></div>
+
+    <form id="form" class="space-y-5" novalidate>
+      <div class="hp"><label>Leave this blank <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+
+      <div>
+        <label class="lbl" for="name">Full name</label>
+        <input class="field" id="name" name="name" autocomplete="name" required />
+      </div>
+      <div>
+        <label class="lbl" for="contact">Mobile &middot; Viber or WhatsApp</label>
+        <input class="field" id="contact" name="contact" type="tel" inputmode="tel" placeholder="09XX XXX XXXX" autocomplete="tel" required />
+      </div>
+      <div>
+        <label class="lbl" for="email">Email <span class="normal-case tracking-normal">(for your confirmation)</span></label>
+        <input class="field" id="email" name="email" type="email" inputmode="email" autocomplete="email" />
+      </div>
+      <div>
+        <label class="lbl" for="source">How did you find Bloom Bar?</label>
+        <select class="field" id="source" name="source">
+          <option value="">Prefer not to say</option>
+          <option>Google</option>
+          <option>Instagram</option>
+          <option>Facebook</option>
+          <option>Word of Mouth</option>
+          <option>Walk-in / Passing By</option>
+          <option>Returning Client</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="space-y-3 pt-1">
+        <label class="flex items-start gap-3 text-sm text-ink/85 cursor-pointer">
+          <input type="checkbox" id="firstTime" class="mt-1 accent-ink w-4 h-4" checked />
+          <span>This is my first treatment at Bloom Bar</span>
+        </label>
+        <label class="flex items-start gap-3 text-sm text-ink/85 cursor-pointer">
+          <input type="checkbox" id="hadConsultation" class="mt-1 accent-ink w-4 h-4" />
+          <span>I have already had my free consultation with Izza</span>
+        </label>
+      </div>
+
+      <div>
+        <label class="lbl" for="notes">Anything Izza should know?</label>
+        <textarea class="field" id="notes" rows="3" placeholder="Existing brow tattoo, allergies, questions&hellip;"></textarea>
+      </div>
+
+      <p id="formError" class="text-sm text-center hidden" style="color:#9b3a3a;"></p>
+
+      <button type="submit" id="submitBtn" class="btn-dark !mt-7">Request this slot</button>
+      <p class="text-center text-mute text-xs leading-relaxed">
+        Your slot is held while Izza confirms it. She replies within a day.
+      </p>
+    </form>
+  </section>
+
+  <!-- ─── DONE ───────────────────────────────────────────────────── -->
+  <section id="done" class="hidden text-center">
+    <div class="w-16 h-16 rounded-full border border-bronze/50 flex items-center justify-center mx-auto mb-6 text-bronze text-2xl">&#10003;</div>
+    <h1 class="font-display text-3xl font-light mb-3">Request <em class="italic">received.</em></h1>
+    <p class="text-mute text-sm mb-7 leading-relaxed">
+      Izza is with clients most of the day and checks requests between appointments.
+      You will hear back within a day.
+    </p>
+    <div id="doneDetails" class="bg-sand rounded-2xl px-5 py-5 text-left mb-7"></div>
+    <div id="doneConsult" class="hidden text-sm text-ink/80 bg-paper border border-stone rounded-2xl px-5 py-4 mb-7 leading-relaxed">
+      Since this is your first treatment, send Izza a photo of your bare brows so she can
+      confirm the right technique for you.
+    </div>
+    <div class="grid grid-cols-2 gap-3 mb-4">
+      <a href="viber://chat?number=%2B639088190053" class="slot text-center" style="border-color:#7360F2;color:#7360F2;">Viber</a>
+      <a href="https://wa.me/639088190053" class="slot text-center" style="border-color:#25D366;color:#128C4A;">WhatsApp</a>
+    </div>
+    <a href="/" class="btn-quiet">&larr; Back to bloombarmnl.com</a>
+  </section>
+
+  <!-- ─── UNAVAILABLE ────────────────────────────────────────────── -->
+  <section id="offline" class="hidden text-center">
+    <h1 class="font-display text-3xl font-light mb-3">Online booking is <em class="italic">resting.</em></h1>
+    <p class="text-mute text-sm mb-7 leading-relaxed">
+      We cannot load the calendar right now. Message Izza directly and she will sort you out.
+    </p>
+    <div class="grid grid-cols-2 gap-3 mb-4">
+      <a href="viber://chat?number=%2B639088190053" class="slot text-center" style="border-color:#7360F2;color:#7360F2;">Viber</a>
+      <a href="https://wa.me/639088190053" class="slot text-center" style="border-color:#25D366;color:#128C4A;">WhatsApp</a>
+    </div>
+    <a href="/" class="btn-quiet">&larr; Back to bloombarmnl.com</a>
+  </section>
+</main>
+
+<footer class="px-5 py-9 border-t border-sand text-center">
+  <div class="text-[10px] tracking-widest-2 uppercase text-mute">&copy; 2026 Bloom Bar MNL</div>
+</footer>
+
+<script>
+const $  = (s) => document.querySelector(s)
+const $$ = (s) => Array.from(document.querySelectorAll(s))
+
+const state = {
+  service: null,
+  month:   null,          // 'YYYY-MM'
+  date:    null,
+  time:    null,
+  data:    {},            // month -> payload
+  minDate: null,
+  maxDate: null,
+}
+
+const MONTH_NAMES = ['January','February','March','April','May','June',
+                     'July','August','September','October','November','December']
+
+const ymOf   = (iso) => iso.slice(0, 7)
+const shiftM = (ym, n) => {
+  const [y, m] = ym.split('-').map(Number)
+  const d = new Date(Date.UTC(y, m - 1 + n, 1))
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`
+}
+const labelOf = (ym) => {
+  const [y, m] = ym.split('-').map(Number)
+  return `${MONTH_NAMES[m - 1]} ${y}`
+}
+const prettyDate = (iso) => {
+  const [y, m, d] = iso.split('-').map(Number)
+  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-PH',
+    { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' })
+}
+
+// ─── Step handling ─────────────────────────────────────────────
+function show(step) {
+  ['step1','step2','step3','done','offline'].forEach(id => $('#' + id).classList.add('hidden'))
+  $('#' + step).classList.remove('hidden')
+  $('#' + step).classList.add('fade')
+  const n = { step1:1, step2:2, step3:3 }[step]
+  $('#steps').classList.toggle('hidden', !n)
+  $$('#steps span').forEach(el => {
+    el.classList.toggle('bg-ink',   Number(el.dataset.step) <= (n || 0))
+    el.classList.toggle('bg-stone', Number(el.dataset.step) >  (n || 0))
+  })
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+$$('[data-back]').forEach(b => b.addEventListener('click', () => show('step' + b.dataset.back)))
+
+// ─── Load a month ──────────────────────────────────────────────
+async function loadMonth(ym) {
+  if (state.data[ym]) return state.data[ym]
+  const res  = await fetch(`/api/availability?month=${ym}`)
+  if (!res.ok) throw new Error('availability')
+  const data = await res.json()
+  state.data[ym] = data
+  state.minDate  = data.minDate
+  state.maxDate  = data.maxDate
+  return data
+}
+
+// ─── Step 1 ────────────────────────────────────────────────────
+async function init() {
+  try {
+    const now  = new Date()
+    const ym   = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`
+    const data = await loadMonth(ym)
+    state.month = ym
+
+    if (!data.services.length) throw new Error('no services')
+
+    $('#services').innerHTML = data.services.map(s => `
+      <button class="card-pick" data-id="${s.id}" data-name="${s.name}" data-first="${s.first_time_ok}" aria-pressed="false">
+        <div class="font-display text-xl font-light">${s.name}</div>
+        ${s.blurb ? `<div class="sub text-sm text-mute mt-1 leading-snug">${s.blurb}</div>` : ''}
+      </button>`).join('')
+
+    $$('#services .card-pick').forEach(btn => btn.addEventListener('click', () => {
+      state.service = { id: btn.dataset.id, name: btn.dataset.name, firstOk: btn.dataset.first === 'true' }
+      $$('#services .card-pick').forEach(b => b.setAttribute('aria-pressed', String(b === btn)))
+      $('#pickedService').textContent = state.service.name
+      // A second session or annual retouch is never someone's first visit
+      $('#firstTime').checked = state.service.firstOk
+      renderCalendar()
+      setTimeout(() => show('step2'), 140)
+    }))
+  } catch (e) {
+    console.error(e)
+    show('offline')
+  }
+}
+
+// ─── Step 2 ────────────────────────────────────────────────────
+async function renderCalendar() {
+  const ym = state.month
+  $('#monthLabel').textContent = labelOf(ym)
+  $('#calendar').innerHTML = `<div class="col-span-7 text-center py-8 text-mute text-sm">
+    <span class="spin inline-block w-4 h-4 border-2 border-stone border-t-ink rounded-full"></span></div>`
+  $('#slotsWrap').classList.add('hidden')
+  state.date = state.time = null
+
+  let data
+  try { data = await loadMonth(ym) } catch { show('offline'); return }
+
+  const open = new Map(data.days.map(d => [d.date, d.slots]))
+  const [y, m] = ym.split('-').map(Number)
+  const firstWeekday = new Date(Date.UTC(y, m - 1, 1)).getUTCDay()
+  const total = new Date(Date.UTC(y, m, 0)).getUTCDate()
+
+  let html = ''
+  for (let i = 0; i < firstWeekday; i++) html += '<div></div>'
+  for (let d = 1; d <= total; d++) {
+    const iso = `${ym}-${String(d).padStart(2, '0')}`
+    html += open.has(iso)
+      ? `<button class="day day-open" data-date="${iso}" aria-pressed="false">${d}</button>`
+      : `<div class="day day-off">${d}</div>`
+  }
+  $('#calendar').innerHTML = html
+
+  $$('#calendar .day-open').forEach(btn => btn.addEventListener('click', () => {
+    state.date = btn.dataset.date
+    state.time = null
+    $$('#calendar .day-open').forEach(b => b.setAttribute('aria-pressed', String(b === btn)))
+    renderSlots(open.get(state.date))
+  }))
+
+  $('#calHint').textContent = open.size
+    ? 'Dates in outline are open. Izza takes two clients a day.'
+    : 'No open dates left this month — try the next one.'
+
+  $('#prevMonth').disabled = ym <= ymOf(state.minDate)
+  $('#nextMonth').disabled = ym >= ymOf(state.maxDate)
+}
+
+function renderSlots(slots) {
+  $('#slotsLabel').textContent = prettyDate(state.date)
+  $('#slots').innerHTML = slots.map(s =>
+    `<button class="slot" data-time="${s.time}" aria-pressed="false">${s.label}</button>`).join('')
+  $('#slotsWrap').classList.remove('hidden')
+
+  $$('#slots .slot').forEach(btn => btn.addEventListener('click', () => {
+    state.time = btn.dataset.time
+    $$('#slots .slot').forEach(b => b.setAttribute('aria-pressed', String(b === btn)))
+    $('#summary').innerHTML = `
+      <div class="font-display text-2xl font-light">${state.service.name}</div>
+      <div class="text-sm text-ink/80 mt-1">${prettyDate(state.date)}</div>
+      <div class="text-sm text-ink/80">${btn.textContent}</div>`
+    setTimeout(() => show('step3'), 140)
+  }))
+
+  $('#slotsWrap').scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+}
+
+$('#prevMonth').addEventListener('click', () => { state.month = shiftM(state.month, -1); renderCalendar() })
+$('#nextMonth').addEventListener('click', () => { state.month = shiftM(state.month,  1); renderCalendar() })
+
+// ─── Step 3 ────────────────────────────────────────────────────
+$('#form').addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const err = $('#formError')
+  err.classList.add('hidden')
+
+  const payload = {
+    serviceId:       state.service.id,
+    date:            state.date,
+    time:            state.time,
+    name:            $('#name').value.trim(),
+    contact:         $('#contact').value.trim(),
+    email:           $('#email').value.trim(),
+    source:          $('#source').value,
+    notes:           $('#notes').value.trim(),
+    firstTime:       $('#firstTime').checked,
+    hadConsultation: $('#hadConsultation').checked,
+    website:         $('[name=website]').value,
+  }
+
+  const btn = $('#submitBtn')
+
+  if (payload.name.length < 2)                        return fail('Please enter your name.')
+  if (payload.contact.replace(/\D/g, '').length < 7)  return fail('Please enter a mobile number.')
+  if (payload.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(payload.email))
+    return fail('That email address does not look right.')
+
+  btn.disabled = true
+  btn.textContent = 'Sending…'
+
+  try {
+    const res  = await fetch('/api/book', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload),
+    })
+    const data = await res.json()
+
+    if (!res.ok) {
+      // Slot taken while they were filling the form — send them back
+      if (res.status === 409) {
+        delete state.data[state.month]
+        fail(data.error)
+        setTimeout(() => { show('step2'); renderCalendar() }, 1600)
+        return
+      }
+      return fail(data.error || 'Something went wrong. Please try again.')
+    }
+
+    $('#doneDetails').innerHTML = `
+      <div class="font-display text-2xl font-light mb-1">${data.service}</div>
+      <div class="text-sm text-ink/80">${data.date}</div>
+      <div class="text-sm text-ink/80">${data.time}</div>
+      <div class="text-[10px] tracking-widest-2 uppercase text-mute mt-3">Reference ${data.ref}</div>`
+    $('#doneConsult').classList.toggle('hidden', !(payload.firstTime && !payload.hadConsultation))
+    show('done')
+  } catch (e) {
+    fail('Could not reach the studio. Please message Izza on Viber or WhatsApp.')
+  } finally {
+    btn.disabled = false
+    btn.textContent = 'Request this slot'
+  }
+
+  function fail(msg) {
+    err.textContent = msg
+    err.classList.remove('hidden')
+    btn.disabled = false
+    btn.textContent = 'Request this slot'
+  }
+})
+
+init()
+</script>
+</body>
+</html>
