@@ -15,6 +15,8 @@ export const env = () => ({
   owner:    process.env.OWNER_EMAIL         || 'bloombarmnl@gmail.com',
   site:     process.env.SITE_URL            || 'https://bloombarmnl.com',
   studio:   process.env.STUDIO_URL          || 'https://bloombar-studio.vercel.app',
+  gaId:     process.env.GA_MEASUREMENT_ID   || 'G-28L6J2S5SM',
+  gaSecret: process.env.GA_API_SECRET,
 })
 
 // ─── Supabase REST ───────────────────────────────────────────────────────────
@@ -144,6 +146,24 @@ export const esc = (v) => String(v ?? '')
 // ─── Chat apps ───────────────────────────────────────────────────────────────
 export const IZZA_NUMBER  = '+63 908 819 0053'
 export const CHAT_APPS    = { viber: 'Viber', whatsapp: 'WhatsApp' }
+
+// ─── Google Analytics, server side ───────────────────────────────────────────
+// Lets the website tell GA4 about things that happen after the visitor has
+// left — Izza confirming a booking — credited to the visitor's original
+// traffic source. Does nothing until GA_API_SECRET is set. Never throws.
+export async function gaEvent(clientId, name, params = {}) {
+  const { gaId, gaSecret } = env()
+  if (!gaSecret || !clientId) return false
+  try {
+    const res = await fetch(
+      `https://www.google-analytics.com/mp/collect?measurement_id=${gaId}&api_secret=${encodeURIComponent(gaSecret)}`,
+      { method: 'POST', body: JSON.stringify({ client_id: clientId, events: [{ name, params: { engagement_time_msec: 1, ...params } }] }) })
+    return res.ok
+  } catch (e) {
+    console.error('GA event failed:', e.message)
+    return false
+  }
+}
 
 // ─── Responses ───────────────────────────────────────────────────────────────
 export const json = (data, status = 200) =>

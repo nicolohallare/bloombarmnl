@@ -102,6 +102,7 @@ export default async (req) => {
       chat_app:         chatApp,
       photo_path:       photoPath,
       photo_url:        photoUrl,
+      ga_client_id:     /^\d{1,20}\.\d{1,20}$/.test(clean(body.gaClientId, 50)) ? clean(body.gaClientId, 50) : null,
       first_time:       !!body.firstTime,
       had_consultation: !!body.hadConsultation,
       source:           clean(body.source, 60) || null,
@@ -125,6 +126,8 @@ export default async (req) => {
           return oops('Sorry — someone just took that slot. Please pick another time.', 409)
         }
         if (msg.includes('ref')) continue        // reference collision, try again
+        // Database not yet updated with the analytics column: save without it
+        if (msg.includes('ga_client_id') && 'ga_client_id' in row) { delete row.ga_client_id; attempt--; continue }
         throw e
       }
     }

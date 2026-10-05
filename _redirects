@@ -5,22 +5,24 @@
 # ── Booking API (Netlify functions) — must stay above the catch-all ──
 /api/*            /.netlify/functions/:splat                     200
 # Don't serve the function source as static files
-/netlify/*        /                                              404
+/netlify/*        /                                              404!
+/supabase/*       /                                              404!
 
 # ── New on-site booking page ──
 /book             /book.html                                     200
 
-# Old service pages → services anchor on Acuity
-# (flip these to /book at cutover, once the new flow is proven)
-/services         https://bloombarmnl.as.me/schedule/08ee4b93   301!
-/services/*       https://bloombarmnl.as.me/schedule/08ee4b93   301!
-/microblading     https://bloombarmnl.as.me/schedule/08ee4b93   301!
-/powder-brows     https://bloombarmnl.as.me/schedule/08ee4b93   301!
-/combo-brows      https://bloombarmnl.as.me/schedule/08ee4b93   301!
-/rates            https://bloombarmnl.as.me/schedule/08ee4b93   301!
-/pricing          https://bloombarmnl.as.me/schedule/08ee4b93   301!
-/booking          https://bloombarmnl.as.me/schedule/08ee4b93   301!
-/appointment      https://bloombarmnl.as.me/schedule/08ee4b93   301!
+# Old WordPress service/booking pages → on-site. They used to go to Acuity,
+# which handed their search value to Acuity's domain. Service pages land on
+# the homepage (indexed); /book itself is noindex, so only booking URLs go there.
+/services         /#book                                         301!
+/services/*       /#book                                         301!
+/microblading     /#book                                         301!
+/powder-brows     /#book                                         301!
+/combo-brows      /#book                                         301!
+/rates            /#book                                         301!
+/pricing          /#book                                         301!
+/booking          /book                                          301!
+/appointment      /book                                          301!
 
 # Info pages → anchors on new single-page site
 /about            /#about                                        301!
