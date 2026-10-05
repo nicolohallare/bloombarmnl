@@ -13,6 +13,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" />
 
+<!-- Google tag — Google Ads (G-ZNEQ7JYC1Y) + GA4 (G-28L6J2S5SM), same as the homepage -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNEQ7JYC1Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZNEQ7JYC1Y');
+  gtag('config', 'G-28L6J2S5SM');
+</script>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -267,6 +277,20 @@ const state = {
   photo:   null,          // data URL, already shrunk
 }
 
+// ─── Tracking ──────────────────────────────────────────────────
+// Each step is a GA4 event, so Analytics shows where people drop off.
+// A sent request is the real conversion: GA4 'generate_lead' plus a
+// page view of /booking-requested that Google Ads can count.
+const track = (name, params = {}) => { try { window.gtag && gtag('event', name, params) } catch {} }
+const slug  = (t) => String(t || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+
+// GA's anonymous visitor id, so the website can report "Izza confirmed this
+// booking" back to Analytics later and credit the right traffic source.
+const gaClientId = () => {
+  const m = document.cookie.match(/(?:^|;\s*)_ga=GA\d\.\d\.(\d+\.\d+)/)
+  return m ? m[1] : ''
+}
+
 const IZZA = { viber: 'viber://chat?number=%2B639088190053', whatsapp: 'https://wa.me/639088190053' }
 const APP_NAME = { viber: 'Viber', whatsapp: 'WhatsApp' }
 
@@ -335,6 +359,7 @@ async function init() {
 
     $$('#services .card-pick').forEach(btn => btn.addEventListener('click', () => {
       state.service = { id: btn.dataset.id, name: btn.dataset.name, firstOk: btn.dataset.first === 'true' }
+      track('booking_step', { step: '1_treatment', service: state.service.name })
       $$('#services .card-pick').forEach(b => b.setAttribute('aria-pressed', String(b === btn)))
       $('#pickedService').textContent = state.service.name
       // A second session or annual retouch is never someone's first visit
@@ -342,8 +367,13 @@ async function init() {
       renderCalendar()
       setTimeout(() => show('step2'), 140)
     }))
+    // Arriving from a treatment card on the homepage (/book?service=microblading)
+    const wanted = new URLSearchParams(location.search).get('service')
+    const match  = wanted && $$('#services .card-pick').find(b => slug(b.dataset.name) === slug(wanted))
+    if (match) match.click()
   } catch (e) {
     console.error(e)
+    track('booking_unavailable')
     show('offline')
   }
 }
@@ -378,6 +408,7 @@ async function renderCalendar() {
   $$('#calendar .day-open').forEach(btn => btn.addEventListener('click', () => {
     state.date = btn.dataset.date
     state.time = null
+    track('booking_step', { step: '2_date', service: state.service?.name })
     $$('#calendar .day-open').forEach(b => b.setAttribute('aria-pressed', String(b === btn)))
     renderSlots(open.get(state.date))
   }))
@@ -398,6 +429,7 @@ function renderSlots(slots) {
 
   $$('#slots .slot').forEach(btn => btn.addEventListener('click', () => {
     state.time = btn.dataset.time
+    track('booking_step', { step: '3_time', service: state.service?.name, slot: btn.textContent })
     $$('#slots .slot').forEach(b => b.setAttribute('aria-pressed', String(b === btn)))
     $('#summary').innerHTML = `
       <div class="font-display text-2xl font-light">${state.service.name}</div>
@@ -439,6 +471,7 @@ $('#photo').addEventListener('change', async (e) => {
   $('#photoTitle').textContent = 'Preparing photo…'
   try {
     state.photo = await shrinkPhoto(file)
+    track('booking_step', { step: '4_photo', service: state.service?.name })
     $('#photoThumb').src = state.photo
     $('#photoThumb').classList.remove('hidden')
     $('#photoIcon').classList.add('hidden')
@@ -470,6 +503,7 @@ $('#form').addEventListener('submit', async (e) => {
     email:           $('#email').value.trim(),
     chatApp:         ($('[name=chatApp]:checked') || {}).value || '',
     photo:           state.photo,
+    gaClientId:      gaClientId(),
     source:          $('#source').value,
     notes:           $('#notes').value.trim(),
     firstTime:       $('#firstTime').checked,
@@ -513,6 +547,13 @@ $('#form').addEventListener('submit', async (e) => {
       <div class="text-sm text-ink/80">${data.date}</div>
       <div class="text-sm text-ink/80">${data.time}</div>
       <div class="text-[10px] tracking-widest-2 uppercase text-mute mt-3">Reference ${data.ref}</div>`
+    track('generate_lead', {
+      currency: 'PHP', value: 1, lead_source: 'booking_page',
+      service: data.service, chat_app: payload.chatApp,
+      first_time: payload.firstTime ? 'yes' : 'no',
+    })
+    track('page_view', { page_location: 'https://bloombarmnl.com/booking-requested', page_title: 'Booking requested' })
+
     const app = APP_NAME[payload.chatApp]
     $('#doneNext').textContent =
       `Izza will message you on ${app} at ${payload.contact} to go over your photo, usually within a day. ` +
@@ -531,10 +572,21 @@ $('#form').addEventListener('submit', async (e) => {
   }
 
   function fail(msg) {
+    track('booking_error', { message: String(msg).slice(0, 90) })
     err.textContent = msg
     err.classList.remove('hidden')
     btn.disabled = false
     btn.textContent = 'Request this slot'
+  }
+})
+
+// Chat taps (done screen, offline fallback, step 1 note)
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href]')
+  if (!a) return
+  const href = a.getAttribute('href') || ''
+  if (href.startsWith('viber://') || href.includes('wa.me')) {
+    track('contact_click', { contact_method: href.startsWith('viber') ? 'viber' : 'whatsapp', page: 'book' })
   }
 })
 

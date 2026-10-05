@@ -59,13 +59,18 @@
   "telephone": "+63-908-819-0053",
   "email": "bloombarmnl@gmail.com",
   "address": {"@type":"PostalAddress","streetAddress":"Valle Verde","addressLocality":"Pasig City","addressRegion":"Metro Manila","addressCountry":"PH"},
-  "openingHoursSpecification": [{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:00"}],
+  "openingHoursSpecification": [{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],
   "sameAs": ["https://www.instagram.com/bloombarmnl/","https://www.facebook.com/profile.php?id=100084843514331"],
   "hasOfferCatalog": {"@type":"OfferCatalog","name":"Brow Services","itemListElement":[
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Microblading"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Combination Brows"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Powder Brows"}}
-  ]}
+  ]},
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {"@type":"EntryPoint","urlTemplate":"https://bloombarmnl.com/book","inLanguage":"en-PH","actionPlatform":["https://schema.org/DesktopWebPlatform","https://schema.org/MobileWebPlatform"]},
+    "result": {"@type":"Reservation","name":"Brow appointment request"}
+  }
 }
 </script>
 
@@ -147,23 +152,49 @@
   </div>
 </section>
 
-<!-- BOOK APPOINTMENT — Embedded Acuity -->
+<!-- BOOK APPOINTMENT — on-site booking at /book -->
 <section id="book" class="px-5 py-16 md:py-20 bg-sand">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-8">
       <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Rates &amp; Booking ·</div>
       <h2 class="font-display text-3xl md:text-5xl font-light mb-3">Book your <em class="italic">appointment.</em></h2>
-      <p class="text-mute text-sm max-w-md mx-auto">Pick your service, choose a time. First-time clients: message Izza on Viber or WhatsApp first for a free 10-min consultation.</p>
+      <p class="text-mute text-sm max-w-md mx-auto">Choose your treatment and a time. Each appointment runs about four hours, at 9:00 AM or 2:00 PM, Monday to Friday.</p>
     </div>
-    <div class="bg-paper rounded-3xl overflow-hidden border border-stone">
-      <iframe src="https://app.acuityscheduling.com/schedule.php?owner=27959313&ref=embedded_csp" title="Book an appointment with Bloom Bar MNL" width="100%" height="820" frameborder="0" allow="payment" style="display:block;"></iframe>
+
+    <div class="grid gap-4 md:grid-cols-3 mb-8">
+      <a href="/book?service=microblading" class="block bg-paper rounded-3xl border border-ink px-6 py-6 hover:-translate-y-0.5 transition">
+        <div class="font-display text-2xl font-light mb-1">Microblading</div>
+        <p class="text-mute text-sm leading-snug mb-4">Fine, hairlike strokes. The most natural daytime look. Lasts 1–2 years.</p>
+        <span class="text-[11px] tracking-widest-2 uppercase text-ink">Request a slot &rarr;</span>
+      </a>
+      <a href="/book?service=combination-brows" class="block bg-paper rounded-3xl border border-ink px-6 py-6 hover:-translate-y-0.5 transition">
+        <div class="font-display text-2xl font-light mb-1">Combination Brows</div>
+        <p class="text-mute text-sm leading-snug mb-4">Microblading plus shading for added density and definition. Lasts up to 3 years.</p>
+        <span class="text-[11px] tracking-widest-2 uppercase text-ink">Request a slot &rarr;</span>
+      </a>
+      <a href="/book?service=powder-brows" class="block bg-paper rounded-3xl border border-ink px-6 py-6 hover:-translate-y-0.5 transition">
+        <div class="font-display text-2xl font-light mb-1">Powder Brows</div>
+        <p class="text-mute text-sm leading-snug mb-4">Soft shaded effect like powder makeup, for a bolder look. Lasts 2–3 years.</p>
+        <span class="text-[11px] tracking-widest-2 uppercase text-ink">Request a slot &rarr;</span>
+      </a>
     </div>
-    <div class="text-center mt-6">
-      <p class="text-mute text-xs">Trouble booking? <a href="viber://chat?number=%2B639088190053" class="text-bronze underline">Message via Viber</a> or <a href="https://wa.me/639088190053" class="text-bronze underline">WhatsApp</a></p>
+
+    <div class="max-w-md mx-auto bg-paper rounded-3xl border border-stone px-6 py-6 mb-6">
+      <div class="text-[10px] tracking-widest-2 uppercase text-mute text-center mb-4">How booking works</div>
+      <ol class="space-y-3 text-sm text-ink/85">
+        <li class="flex gap-3"><span class="font-display text-xl leading-none text-bronze">1</span><span>Pick a treatment and a date, and add a photo of your bare brows.</span></li>
+        <li class="flex gap-3"><span class="font-display text-xl leading-none text-bronze">2</span><span>Izza messages you on Viber or WhatsApp to talk it through. Your slot is held meanwhile.</span></li>
+        <li class="flex gap-3"><span class="font-display text-xl leading-none text-bronze">3</span><span>Once she confirms, you get an email with everything to know before your visit.</span></li>
+      </ol>
+      <a href="/book" class="btn-dark mt-6">Request a slot</a>
+      <p class="text-center text-mute text-xs mt-3">Second session or annual retouch? Book those here too.</p>
+    </div>
+
+    <div class="text-center">
+      <p class="text-mute text-xs">Questions first? <a href="viber://chat?number=%2B639088190053" class="text-bronze underline">Message via Viber</a> or <a href="https://wa.me/639088190053" class="text-bronze underline">WhatsApp</a></p>
     </div>
   </div>
 </section>
-<script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
 
 <!-- RECENT CLIENTS -->
 <section id="work" class="px-5 py-16 md:py-20 bg-sand">
@@ -375,7 +406,7 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.4321011144866!2d121.0681781!3d14.574436899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c915a953e69b%3A0x2ffb27db894e0f02!2sBloom%20Bar%20MNL!5e0!3m2!1sen!2sph!4v1786234228484!5m2!1sen!2sph" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Bloom Bar MNL location"></iframe>
   </div>
   <div class="mt-6 space-y-3">
-    <a href="#book" class="btn-dark">📅 Book Now</a>
+    <a href="/book" class="btn-dark">📅 Book Now</a>
     <a href="https://maps.app.goo.gl/i4gTdbmWUnPDLkJEA" class="btn-dark">📍 Get Directions</a>
   </div>
 </section>
@@ -415,7 +446,7 @@ slider.addEventListener('pointerup', () => dragging = false);
 slider.addEventListener('pointercancel', () => dragging = false);
 
 // CONVERSION TRACKING — fires events for both Google Ads + GA4
-// Catches chat-based bookings, not just Acuity self-service
+// Real booking requests are tracked on /book (generate_lead + /booking-requested)
 function trackConversion(source, value) {
   if (typeof gtag !== 'undefined') {
     // Google Ads conversion event
@@ -448,8 +479,8 @@ document.querySelectorAll('a').forEach(function(link) {
     link.addEventListener('click', () => trackConversion('viber', 500));
   } else if (href.includes('wa.me') || href.includes('whatsapp')) {
     link.addEventListener('click', () => trackConversion('whatsapp', 500));
-  } else if (href.includes('bloombarmnl.as.me') || href.includes('BloomBarMNL.as.me')) {
-    link.addEventListener('click', () => trackConversion('acuity_booking', 2500));
+  } else if (href.startsWith('/book')) {
+    link.addEventListener('click', () => trackConversion('book_page', 1500));
   } else if (href === '#book') {
     link.addEventListener('click', () => trackConversion('book_intent', 1500));
   } else if (href.includes('instagram.com')) {
@@ -461,18 +492,6 @@ document.querySelectorAll('a').forEach(function(link) {
   }
 });
 
-// Listen for Acuity iframe completion events (fires when a client completes booking on-site)
-window.addEventListener('message', function(e) {
-  if (e.origin && e.origin.includes('acuityscheduling.com')) {
-    // Acuity sends various messages; look for booking-completed signals
-    const data = e.data || {};
-    if (typeof data === 'string' && (data.includes('booking-complete') || data.includes('appointmentScheduled'))) {
-      trackConversion('acuity_booking_completed', 10000);
-    } else if (data.type && (data.type.includes('appointment') || data.type.includes('booking'))) {
-      trackConversion('acuity_booking_completed', 10000);
-    }
-  }
-});
 </script>
 </body>
 </html>

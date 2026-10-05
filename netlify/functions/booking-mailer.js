@@ -7,7 +7,7 @@
 // credentials or an API key of its own — it just changes the status.
 
 import {
-  sb, json, env, sendEmail, emailShell, detailRows, esc,
+  sb, json, env, sendEmail, emailShell, detailRows, esc, gaEvent,
   todayManila, addDays, prettyTime, TZ, IZZA_NUMBER, CHAT_APPS,
 } from './lib/core.js'
 
@@ -24,7 +24,7 @@ export default async () => {
   if (!env().url || !env().key) return json({ skipped: 'not configured' })
 
   const out = { confirmed: 0, declined: 0, reminders: 0 }
-  const select = 'id,ref,client_name,email,chat_app,service_name,booking_date,start_time,first_time,had_consultation,status_note'
+  const select = '*'   // every column, so newer optional ones (ga_client_id) never break this
 
   try {
     // ─── Confirmations ─────────────────────────────────────────────────────
@@ -54,6 +54,8 @@ export default async () => {
         `),
       })
       await stamp(b.id, 'confirm_sent_at')
+      // Tell GA4 this visitor's request became a real booking
+      await gaEvent(b.ga_client_id, 'booking_confirmed', { service: b.service_name, booking_ref: b.ref })
       out.confirmed++
     }
 
