@@ -7,14 +7,15 @@
 // credentials or an API key of its own — it just changes the status.
 
 import {
-  sb, json, env, sendEmail, emailShell, detailRows,
-  todayManila, addDays, prettyTime, TZ,
+  sb, json, env, sendEmail, emailShell, detailRows, esc,
+  todayManila, addDays, prettyTime, TZ, IZZA_NUMBER, CHAT_APPS,
 } from './lib/core.js'
 
 const stamp = (id, field) =>
   sb(`bookings?id=eq.${id}`, { method: 'PATCH', body: JSON.stringify({ [field]: new Date().toISOString() }) })
 
-const firstName = (n) => String(n || '').trim().split(' ')[0] || 'there'
+const firstName = (n) => esc(String(n || '').trim().split(' ')[0] || 'there')
+const appOf     = (b) => CHAT_APPS[b.chat_app] || 'Viber or WhatsApp'
 
 const manilaHour = () =>
   Number(new Intl.DateTimeFormat('en-GB', { timeZone: TZ, hour: '2-digit', hour12: false }).format(new Date()))
@@ -23,7 +24,7 @@ export default async () => {
   if (!env().url || !env().key) return json({ skipped: 'not configured' })
 
   const out = { confirmed: 0, declined: 0, reminders: 0 }
-  const select = 'id,ref,client_name,email,service_name,booking_date,start_time,first_time,had_consultation,status_note'
+  const select = 'id,ref,client_name,email,chat_app,service_name,booking_date,start_time,first_time,had_consultation,status_note'
 
   try {
     // ─── Confirmations ─────────────────────────────────────────────────────
@@ -46,13 +47,8 @@ export default async () => {
             <li>No waxing or tinting your brows for 3 days before</li>
             <li>Come with bare brows and set aside about four hours</li>
           </ul>
-          ${b.first_time && !b.had_consultation ? `
-            <p style="background:#F7F5F0;border-radius:12px;padding:14px 16px;">
-              If you have not sent your brow photo yet, please send one to
-              <strong>+63 908 819 0053</strong> on Viber or WhatsApp before your appointment.
-            </p>` : ''}
-          <p>The exact address and directions will be sent to you on Viber or WhatsApp.</p>
-          <p>Need to reschedule? Message +63 908 819 0053 at least 24 hours ahead.</p>
+          <p>Izza will send the exact address and directions on ${appOf(b)}.</p>
+          <p>Need to reschedule? Message ${IZZA_NUMBER} at least 24 hours ahead.</p>
           <p style="margin-top:22px;">See you soon,<br/><strong>Izza</strong><br/>
           <span style="color:#8B7E6C;font-size:13px;">Bloom Bar MNL</span></p>
         `),
@@ -75,9 +71,9 @@ export default async () => {
           <p>Thank you for asking about a slot at Bloom Bar. Unfortunately Izza cannot
           take this one:</p>
           ${detailRows(b)}
-          ${b.status_note ? `<p>${b.status_note}</p>` : ''}
-          <p>She would still love to look after your brows — message her on
-          <strong>+63 908 819 0053</strong> and she will find you a time that works.</p>
+          ${b.status_note ? `<p>${esc(b.status_note)}</p>` : ''}
+          <p>She would still love to look after your brows — message her on ${appOf(b)} at
+          <strong>${IZZA_NUMBER}</strong> and she will find you a time that works.</p>
           <p style="margin-top:22px;">Warmly,<br/><strong>Izza</strong><br/>
           <span style="color:#8B7E6C;font-size:13px;">Bloom Bar MNL</span></p>
         `),
@@ -104,7 +100,7 @@ export default async () => {
               ${detailRows(b)}
               <p>No coffee or alcohol today, come with bare brows, and set aside
               about four hours.</p>
-              <p>If anything has changed, message +63 908 819 0053 as soon as you can.</p>
+              <p>If anything has changed, message ${IZZA_NUMBER} as soon as you can.</p>
               <p style="margin-top:22px;">See you tomorrow,<br/><strong>Izza</strong></p>
             `),
           })

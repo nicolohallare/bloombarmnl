@@ -63,6 +63,17 @@
   .field:focus { border-color:#1A1612; }
   .field::placeholder { color:#C4BFB2; }
   .lbl { display:block; font-size:.625rem; letter-spacing:.2em; text-transform:uppercase; color:#8B7E6C; margin-bottom:.4rem; }
+  .choice { display:flex; align-items:center; justify-content:center; gap:.5rem; border:1.5px solid #C4BFB2;
+            border-radius:9999px; padding:.8rem .5rem; font-size:.875rem; cursor:pointer; transition:all .2s; }
+  .choice:hover { border-color:#1A1612; }
+  .choice:has(input:checked) { background:#1A1612; color:#fff; border-color:#1A1612; }
+  .choice:has(input:focus-visible) { outline:2px solid #A88860; outline-offset:2px; }
+  .choice input { position:absolute; opacity:0; width:1px; height:1px; }
+  .photo-drop { display:flex; align-items:center; gap:1rem; width:100%; border:1.5px dashed #C4BFB2; border-radius:1rem;
+                padding:1rem; cursor:pointer; transition:border-color .2s; background:#fff; text-align:left; }
+  .photo-drop:hover, .photo-drop:focus-within { border-color:#1A1612; }
+  .photo-drop.has-photo { border-style:solid; }
+  .photo-thumb { width:72px; height:72px; border-radius:.75rem; object-fit:cover; flex-shrink:0; background:#DEDACF; }
   .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
   .spin { animation: spin 1s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -101,11 +112,9 @@
     </div>
 
     <div class="mt-8 px-5 py-4 bg-sand rounded-2xl text-sm leading-relaxed">
-      <span class="text-ink font-medium">First time?</span>
-      <span class="text-ink/80">Izza needs a quick look at your bare brows before your appointment. You can
-      request a slot here and send the photo after, or message her first on
-      <a href="viber://chat?number=%2B639088190053" class="underline">Viber</a> or
-      <a href="https://wa.me/639088190053" class="underline">WhatsApp</a>.</span>
+      <span class="text-ink font-medium">How it works.</span>
+      <span class="text-ink/80">You will add a photo of your bare brows with your request. Izza then
+      messages you on Viber or WhatsApp to talk it through before she confirms your slot.</span>
     </div>
   </section>
 
@@ -153,8 +162,27 @@
         <input class="field" id="contact" name="contact" type="tel" inputmode="tel" placeholder="09XX XXX XXXX" autocomplete="tel" required />
       </div>
       <div>
-        <label class="lbl" for="email">Email <span class="normal-case tracking-normal">(for your confirmation)</span></label>
-        <input class="field" id="email" name="email" type="email" inputmode="email" autocomplete="email" />
+        <label class="lbl" for="email">Email <span class="normal-case tracking-normal">(we tell you here when Izza confirms)</span></label>
+        <input class="field" id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
+      </div>
+      <fieldset>
+        <legend class="lbl">Izza will message you on</legend>
+        <div class="grid grid-cols-2 gap-3">
+          <label class="choice"><input type="radio" name="chatApp" id="chatViber" value="viber" />Viber</label>
+          <label class="choice"><input type="radio" name="chatApp" id="chatWhatsapp" value="whatsapp" />WhatsApp</label>
+        </div>
+      </fieldset>
+      <div>
+        <span class="lbl">Photo of your brows</span>
+        <label class="photo-drop" id="photoDrop" for="photo">
+          <img id="photoThumb" class="photo-thumb hidden" alt="Your brow photo" />
+          <span id="photoIcon" class="photo-thumb flex items-center justify-center text-mute text-2xl" aria-hidden="true">+</span>
+          <span class="text-sm leading-snug">
+            <span id="photoTitle" class="block text-ink font-medium">Add a photo</span>
+            <span id="photoSub" class="block text-mute text-xs mt-1">Face the camera in daylight, brows bare and hair pulled back.</span>
+          </span>
+          <input id="photo" type="file" accept="image/*" class="sr-only" />
+        </label>
       </div>
       <div>
         <label class="lbl" for="source">How did you find Bloom Bar?</label>
@@ -190,7 +218,7 @@
 
       <button type="submit" id="submitBtn" class="btn-dark !mt-7">Request this slot</button>
       <p class="text-center text-mute text-xs leading-relaxed">
-        Your slot is held while Izza confirms it. She replies within a day.
+        Your slot is held while you and Izza talk it through. You will get an email once she confirms or declines.
       </p>
     </form>
   </section>
@@ -199,19 +227,10 @@
   <section id="done" class="hidden text-center">
     <div class="w-16 h-16 rounded-full border border-bronze/50 flex items-center justify-center mx-auto mb-6 text-bronze text-2xl">&#10003;</div>
     <h1 class="font-display text-3xl font-light mb-3">Request <em class="italic">received.</em></h1>
-    <p class="text-mute text-sm mb-7 leading-relaxed">
-      Izza is with clients most of the day and checks requests between appointments.
-      You will hear back within a day.
-    </p>
+    <p id="doneNext" class="text-mute text-sm mb-7 leading-relaxed"></p>
     <div id="doneDetails" class="bg-sand rounded-2xl px-5 py-5 text-left mb-7"></div>
-    <div id="doneConsult" class="hidden text-sm text-ink/80 bg-paper border border-stone rounded-2xl px-5 py-4 mb-7 leading-relaxed">
-      Since this is your first treatment, send Izza a photo of your bare brows so she can
-      confirm the right technique for you.
-    </div>
-    <div class="grid grid-cols-2 gap-3 mb-4">
-      <a href="viber://chat?number=%2B639088190053" class="slot text-center" style="border-color:#7360F2;color:#7360F2;">Viber</a>
-      <a href="https://wa.me/639088190053" class="slot text-center" style="border-color:#25D366;color:#128C4A;">WhatsApp</a>
-    </div>
+    <p class="text-sm text-ink/80 mb-3">Want to start the conversation now?</p>
+    <a id="doneChat" class="btn-dark mb-6"></a>
     <a href="/" class="btn-quiet">&larr; Back to bloombarmnl.com</a>
   </section>
 
@@ -245,7 +264,11 @@ const state = {
   data:    {},            // month -> payload
   minDate: null,
   maxDate: null,
+  photo:   null,          // data URL, already shrunk
 }
+
+const IZZA = { viber: 'viber://chat?number=%2B639088190053', whatsapp: 'https://wa.me/639088190053' }
+const APP_NAME = { viber: 'Viber', whatsapp: 'WhatsApp' }
 
 const MONTH_NAMES = ['January','February','March','April','May','June',
                      'July','August','September','October','November','December']
@@ -389,6 +412,49 @@ function renderSlots(slots) {
 $('#prevMonth').addEventListener('click', () => { state.month = shiftM(state.month, -1); renderCalendar() })
 $('#nextMonth').addEventListener('click', () => { state.month = shiftM(state.month,  1); renderCalendar() })
 
+// ─── Brow photo ────────────────────────────────────────────────
+// Phone photos are often 4–10 MB. Shrink to 1600px JPEG here so the upload
+// is quick on mobile data and well under the server's limit.
+function shrinkPhoto(file) {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file)
+    const img = new Image()
+    img.onload = () => {
+      const scale  = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight))
+      const canvas = document.createElement('canvas')
+      canvas.width  = Math.round(img.naturalWidth  * scale)
+      canvas.height = Math.round(img.naturalHeight * scale)
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height)
+      URL.revokeObjectURL(url)
+      resolve(canvas.toDataURL('image/jpeg', 0.85))
+    }
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('decode')) }
+    img.src = url
+  })
+}
+
+$('#photo').addEventListener('change', async (e) => {
+  const file = e.target.files?.[0]
+  if (!file) return
+  $('#photoTitle').textContent = 'Preparing photo…'
+  try {
+    state.photo = await shrinkPhoto(file)
+    $('#photoThumb').src = state.photo
+    $('#photoThumb').classList.remove('hidden')
+    $('#photoIcon').classList.add('hidden')
+    $('#photoDrop').classList.add('has-photo')
+    $('#photoTitle').textContent = 'Photo added'
+    $('#photoSub').textContent   = 'Tap to choose a different one.'
+  } catch {
+    state.photo = null
+    $('#photoThumb').classList.add('hidden')
+    $('#photoIcon').classList.remove('hidden')
+    $('#photoDrop').classList.remove('has-photo')
+    $('#photoTitle').textContent = 'That photo could not be opened'
+    $('#photoSub').textContent   = 'Please try a JPG or PNG photo.'
+  }
+})
+
 // ─── Step 3 ────────────────────────────────────────────────────
 $('#form').addEventListener('submit', async (e) => {
   e.preventDefault()
@@ -402,6 +468,8 @@ $('#form').addEventListener('submit', async (e) => {
     name:            $('#name').value.trim(),
     contact:         $('#contact').value.trim(),
     email:           $('#email').value.trim(),
+    chatApp:         ($('[name=chatApp]:checked') || {}).value || '',
+    photo:           state.photo,
     source:          $('#source').value,
     notes:           $('#notes').value.trim(),
     firstTime:       $('#firstTime').checked,
@@ -413,8 +481,10 @@ $('#form').addEventListener('submit', async (e) => {
 
   if (payload.name.length < 2)                        return fail('Please enter your name.')
   if (payload.contact.replace(/\D/g, '').length < 7)  return fail('Please enter a mobile number.')
-  if (payload.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(payload.email))
-    return fail('That email address does not look right.')
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(payload.email))
+    return fail('Please enter your email so we can tell you when Izza confirms.')
+  if (!payload.chatApp)  return fail('Please choose Viber or WhatsApp.')
+  if (!payload.photo)    return fail('Please add a photo of your brows.')
 
   btn.disabled = true
   btn.textContent = 'Sending…'
@@ -443,7 +513,15 @@ $('#form').addEventListener('submit', async (e) => {
       <div class="text-sm text-ink/80">${data.date}</div>
       <div class="text-sm text-ink/80">${data.time}</div>
       <div class="text-[10px] tracking-widest-2 uppercase text-mute mt-3">Reference ${data.ref}</div>`
-    $('#doneConsult').classList.toggle('hidden', !(payload.firstTime && !payload.hadConsultation))
+    const app = APP_NAME[payload.chatApp]
+    $('#doneNext').textContent =
+      `Izza will message you on ${app} at ${payload.contact} to go over your photo, usually within a day. ` +
+      `Once she confirms, you will get an email at ${payload.email}.`
+    const hello = `Hi Izza! I just requested ${data.service} on ${data.date}, ${data.time} (ref ${data.ref}).`
+    $('#doneChat').href = payload.chatApp === 'whatsapp'
+      ? `${IZZA.whatsapp}?text=${encodeURIComponent(hello)}`
+      : `${IZZA.viber}&draft=${encodeURIComponent(hello)}`
+    $('#doneChat').textContent = `Message Izza on ${app}`
     show('done')
   } catch (e) {
     fail('Could not reach the studio. Please message Izza on Viber or WhatsApp.')
