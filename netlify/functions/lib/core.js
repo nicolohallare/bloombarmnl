@@ -97,6 +97,54 @@ export const makeRef = () => {
   return `BB-${out}`
 }
 
+// ─── Brow photos (Supabase Storage) ─────────────────────────────────────────
+// Private bucket: nothing in it is public. The function uploads with the
+// service key and stores a long-lived signed link on the booking, which is
+// what the studio app shows.
+export const PHOTO_BUCKET   = 'brow-photos'
+export const PHOTO_MAX_BYTES = 5 * 1024 * 1024
+const PHOTO_LINK_SECONDS     = 60 * 60 * 24 * 365     // one year
+
+export async function uploadPhoto(path, bytes, contentType) {
+  const { url, key } = env()
+  const res = await fetch(`${url}/storage/v1/object/${PHOTO_BUCKET}/${path}`, {
+    method: 'POST',
+    headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': contentType, 'x-upsert': 'false' },
+    body: bytes,
+  })
+  if (!res.ok) throw new Error(`Photo upload failed: ${res.status} ${await res.text()}`)
+}
+
+export async function signPhoto(path) {
+  const { url, key } = env()
+  const res = await fetch(`${url}/storage/v1/object/sign/${PHOTO_BUCKET}/${path}`, {
+    method: 'POST',
+    headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ expiresIn: PHOTO_LINK_SECONDS }),
+  })
+  if (!res.ok) throw new Error(`Photo link failed: ${res.status} ${await res.text()}`)
+  const { signedURL } = await res.json()
+  return `${url}/storage/v1${signedURL}`
+}
+
+export async function removePhoto(path) {
+  const { url, key } = env()
+  try {
+    await fetch(`${url}/storage/v1/object/${PHOTO_BUCKET}/${path}`, {
+      method: 'DELETE', headers: { apikey: key, Authorization: `Bearer ${key}` },
+    })
+  } catch { /* best effort */ }
+}
+
+// ─── Text the client typed, made safe to drop into an email ─────────────────
+export const esc = (v) => String(v ?? '')
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+
+// ─── Chat apps ───────────────────────────────────────────────────────────────
+export const IZZA_NUMBER  = '+63 908 819 0053'
+export const CHAT_APPS    = { viber: 'Viber', whatsapp: 'WhatsApp' }
+
 // ─── Responses ───────────────────────────────────────────────────────────────
 export const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
@@ -109,14 +157,18 @@ export const oops = (message, status = 400) => json({ error: message }, status)
 // ─── Email via Resend ────────────────────────────────────────────────────────
 // Returns true if sent. Never throws: a booking must not fail because an
 // email did. Missing API key simply skips sending.
-export async function sendEmail({ to, subject, html, replyTo }) {
+export async function sendEmail({ to, subject, html, replyTo, attachments }) {
   const { resend, from } = env()
   if (!resend) return false
   try {
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${resend}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from, to: Array.isArray(to) ? to : [to], subject, html, ...(replyTo ? { reply_to: replyTo } : {}) }),
+      body: JSON.stringify({
+        from, to: Array.isArray(to) ? to : [to], subject, html,
+        ...(replyTo ? { reply_to: replyTo } : {}),
+        ...(attachments?.length ? { attachments } : {}),
+      }),
     })
     if (!res.ok) console.error('Resend failed:', res.status, await res.text())
     return res.ok
