@@ -11,6 +11,12 @@
 # ── New on-site booking page ──
 /book             /book.html                                     200
 
+# ── Treatment pages (pretty URLs) ──
+/microblading        /microblading.html                         200
+/powder-brows        /powder-brows.html                         200
+/combo-brows         /combo-brows.html                          200
+/combination-brows   /combo-brows                               301!
+
 # ── Short links for bios and profiles (tagged so Analytics knows the source) ──
 /ig               /book?utm_source=instagram&utm_medium=social&utm_campaign=bio   301!
 /fb               /book?utm_source=facebook&utm_medium=social&utm_campaign=page   301!
@@ -19,11 +25,9 @@
 # Old WordPress service/booking pages → on-site. They used to go to Acuity,
 # which handed their search value to Acuity's domain. Service pages land on
 # the homepage (indexed); /book itself is noindex, so only booking URLs go there.
+# /microblading, /powder-brows and /combo-brows are real pages now (see above).
 /services         /#book                                         301!
 /services/*       /#book                                         301!
-/microblading     /#book                                         301!
-/powder-brows     /#book                                         301!
-/combo-brows      /#book                                         301!
 /rates            /#book                                         301!
 /pricing          /#book                                         301!
 /booking          /book                                          301!
