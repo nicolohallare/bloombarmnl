@@ -13,6 +13,7 @@ import {
   uploadPhoto, signPhoto, removePhoto, PHOTO_MAX_BYTES,
   IZZA_NUMBER, CHAT_APPS, LEAD_DAYS, HORIZON,
 } from './lib/core.js'
+import { notifyStudio } from './lib/push.js'
 
 const clean = (v, max = 400) => String(v ?? '').trim().slice(0, max)
 
@@ -136,6 +137,13 @@ export default async (req) => {
       return oops('Could not save your request. Please try again.', 500)
     }
     saved = true
+
+    // ── Phone alert in Izza's studio app (no names in the alert) ────────────
+    await notifyStudio({
+      title: 'New booking request',
+      body: `${booking.service_name} · ${prettyDate(booking.booking_date)}, ${prettyTime(booking.start_time)}`,
+      url: '/?screen=bookings', tag: booking.ref,
+    })
 
     // ── Emails (never block the booking) ───────────────────────────────────
     const { owner, studio } = env()

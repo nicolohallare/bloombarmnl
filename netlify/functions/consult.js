@@ -8,6 +8,7 @@ import {
   uploadPhoto, signPhoto, removePhoto, PHOTO_MAX_BYTES,
   IZZA_NUMBER, CHAT_APPS,
 } from './lib/core.js'
+import { notifyStudio } from './lib/push.js'
 
 const clean = (v, max = 400) => String(v ?? '').trim().slice(0, max)
 const PHOTO_TYPES = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp' }
@@ -95,6 +96,13 @@ export default async (req) => {
     }
     if (!consult) throw new Error('could not save consult')
     saved = true
+
+    // ── Phone alert in Izza's studio app (no names in the alert) ────────────
+    await notifyStudio({
+      title: 'New brow check',
+      body: `${interest} · photo sent, reply on ${CHAT_APPS[chatApp]}`,
+      url: '/?screen=bookings', tag: consult.ref,
+    })
 
     // ── Emails (never block the request) ───────────────────────────────────
     const { owner, studio } = env()

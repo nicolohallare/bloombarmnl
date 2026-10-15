@@ -1,7 +1,7 @@
 -- ═══════════════════════════════════════════════════════════════════
 -- Bloom Bar booking — follow-up #4: free brow checks
 -- Run once in Supabase → bloombar → SQL Editor. Safe to run twice.
--- Adds one table; nothing existing is changed.
+-- Adds three tables (brow checks + phone alerts); nothing existing is changed.
 --
 -- A brow check is the first step most clients take: they send a photo
 -- of their bare brows, Izza messages them, and they book after talking.
@@ -45,8 +45,30 @@ drop policy if exists update_consult_requests on consult_requests;
 create policy read_consult_requests   on consult_requests for select using (true);
 create policy update_consult_requests on consult_requests for update using (true) with check (true);
 
+-- ─── Phone alerts for the studio app ────────────────────────────────
+-- One row per phone that turned alerts on. Only the website's functions
+-- (service key) can read or write these: RLS on, no policies.
+create table if not exists push_subscriptions (
+  id          uuid primary key default gen_random_uuid(),
+  created_at  timestamptz not null default now(),
+  endpoint    text unique not null,
+  p256dh      text not null,
+  auth        text not null,
+  label       text
+);
+alter table push_subscriptions enable row level security;
+
+-- Small key/value store for server-only secrets (the alert signing key is
+-- created here automatically the first time it's needed).
+create table if not exists app_secrets (
+  key    text primary key,
+  value  text not null
+);
+alter table app_secrets enable row level security;
+
 -- ─── CHECK ───────────────────────────────────────────────────────────
--- Should return: table 1, policies 2
+-- Should return: tables 3, policies 2
 select
-  (select count(*) from information_schema.tables where table_schema = 'public' and table_name = 'consult_requests') as "table",
+  (select count(*) from information_schema.tables where table_schema = 'public'
+     and table_name in ('consult_requests', 'push_subscriptions', 'app_secrets')) as tables,
   (select count(*) from pg_policies where tablename = 'consult_requests') as policies;
