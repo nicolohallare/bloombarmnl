@@ -198,8 +198,9 @@
       <div class="arch arch-ring"><img src="/images/hero.jpg" alt="Izza Hallare with a brow client at Bloom Bar MNL, Pasig" class="w-full aspect-[3/4] object-cover" width="1200" height="1799" /></div>
     </div>
     <div class="max-w-sm mx-auto space-y-3">
-      <a href="/book?service=combination-brows" class="btn-dark">Request a slot</a>
-      <p class="text-[10px] tracking-widest-2 uppercase text-mute">By Izza Hallare · US Certified · Valle Verde, Pasig</p>
+      <a href="/consult?interest=combination-brows" class="btn-dark">Get a free brow check</a>
+      <a href="/book?service=combination-brows" class="btn-outline">Request a slot</a>
+      <p class="text-[10px] tracking-widest-2 uppercase text-mute pt-1">By Izza Hallare · US Certified · Valle Verde, Pasig</p>
     </div>
   </div>
 </section>
@@ -224,7 +225,7 @@
     <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3 text-center">· How It Works ·</div>
     <h2 class="font-display text-3xl md:text-5xl font-light mb-10 text-center">From photo to <em class="italic">finished brows.</em></h2>
     <ol class="space-y-7">
-      <li class="flex gap-5"><span class="font-display text-3xl leading-none text-bronze w-6 flex-shrink-0">1</span><div><h3 class="font-medium mb-1">Free consultation</h3><p class="text-ink/80 leading-relaxed">Request a slot online and add a photo of your bare brows, or message Izza first. She checks you're a good candidate and recommends the right technique.</p></div></li>
+      <li class="flex gap-5"><span class="font-display text-3xl leading-none text-bronze w-6 flex-shrink-0">1</span><div><h3 class="font-medium mb-1">Free brow check</h3><p class="text-ink/80 leading-relaxed"><a href="/consult?interest=combination-brows" class="underline decoration-bronze/50 hover:text-bronze">Send a photo of your bare brows</a>. Izza messages you on Viber or WhatsApp to check you're a good candidate and recommend the right technique, then you pick a date together.</p></div></li>
       <li class="flex gap-5"><span class="font-display text-3xl leading-none text-bronze w-6 flex-shrink-0">2</span><div><h3 class="font-medium mb-1">Your appointment</h3><p class="text-ink/80 leading-relaxed">About four hours at the studio in Valle Verde, Pasig: mapping the shape that suits your face, then the treatment itself. Every tool is single-use and the workspace is sterilized between clients.</p></div></li>
       <li class="flex gap-5"><span class="font-display text-3xl leading-none text-bronze w-6 flex-shrink-0">3</span><div><h3 class="font-medium mb-1">Second session, 6–10 weeks later</h3><p class="text-ink/80 leading-relaxed">Included in every treatment, to perfect the saturation and shape once your brows have healed.</p></div></li>
       <li class="flex gap-5"><span class="font-display text-3xl leading-none text-bronze w-6 flex-shrink-0">4</span><div><h3 class="font-medium mb-1">Annual retouch</h3><p class="text-ink/80 leading-relaxed">A yearly refresh keeps them looking fresh.</p></div></li>
@@ -350,8 +351,9 @@
   <div class="max-w-md mx-auto text-center">
     <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3">· Book ·</div>
     <h2 class="font-display text-3xl md:text-5xl font-light mb-4">Ready for <em class="italic">your brows?</em></h2>
-    <p class="text-mute text-sm mb-8">Pick a date, add a photo of your brows, and Izza will message you to talk it through.</p>
-    <a href="/book?service=combination-brows" class="btn-dark mb-6">Request a combination brows slot</a>
+    <p class="text-mute text-sm mb-8">Start with a free brow check: send a photo of your bare brows and Izza will message you to talk it through.</p>
+    <a href="/consult?interest=combination-brows" class="btn-dark mb-3">Get a free brow check</a>
+    <a href="/book?service=combination-brows" class="btn-outline mb-6">Request a combination brows slot</a>
     <p class="text-mute text-sm mb-4">Questions first? Chat with Izza.</p>
     <div class="grid grid-cols-2 gap-3">
       <a href="viber://chat?number=%2B639088190053" class="btn-chat" style="border-color:#7360F2;color:#7360F2;" aria-label="Message Izza on Viber">
@@ -399,6 +401,7 @@ document.addEventListener('click', (e) => {
   const href = a.getAttribute('href') || ''
   const page = 'combo-brows'
   if (href.startsWith('/book')) gtag('event', 'book_click', { page, service: 'combination-brows' })
+  else if (href.startsWith('/consult')) gtag('event', 'brow_check_click', { page, service: 'combination-brows' })
   else if (href.startsWith('viber://')) gtag('event', 'contact_click', { contact_method: 'viber', page })
   else if (href.includes('wa.me'))     gtag('event', 'contact_click', { contact_method: 'whatsapp', page })
 })

@@ -161,6 +161,13 @@
       <p class="text-mute text-sm max-w-md mx-auto">Choose your treatment and a time. Each appointment runs about four hours, at 9:00 AM or 2:00 PM, Monday to Friday.</p>
     </div>
 
+    <div class="max-w-md mx-auto bg-ink text-paper rounded-3xl px-6 py-7 mb-8 text-center">
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-2">Start here · Free</div>
+      <div class="font-display text-3xl font-light mb-2">Send Bloom Bar <em class="italic">your brows.</em></div>
+      <p class="text-paper/75 text-sm leading-relaxed mb-5">A photo of your bare brows is all it takes. Izza messages you on Viber or WhatsApp to talk through what would suit you.</p>
+      <a href="/consult" class="block bg-paper text-ink rounded-full px-6 py-3.5 text-[13px] tracking-[0.15em] uppercase font-medium hover:bg-bronze hover:text-paper transition-colors">Get a free brow check</a>
+    </div>
+
     <div class="grid gap-4 md:grid-cols-3 mb-8">
       <div class="bg-paper rounded-3xl border border-ink px-6 py-6 flex flex-col">
         <a href="/microblading" class="hover:text-bronze transition-colors"><div class="font-display text-2xl font-light mb-1">Microblading</div>
@@ -191,7 +198,7 @@
     <div class="max-w-md mx-auto bg-paper rounded-3xl border border-stone px-6 py-6 mb-6">
       <div class="text-[10px] tracking-widest-2 uppercase text-mute text-center mb-4">How booking works</div>
       <ol class="space-y-3 text-sm text-ink/85">
-        <li class="flex gap-3"><span class="font-display text-xl leading-none text-bronze">1</span><span>Pick a treatment and a date, and add a photo of your bare brows.</span></li>
+        <li class="flex gap-3"><span class="font-display text-xl leading-none text-bronze">1</span><span>Send a photo of your bare brows for a <a href="/consult" class="underline decoration-bronze/50 hover:text-bronze">free brow check</a>, or pick a date straight away.</span></li>
         <li class="flex gap-3"><span class="font-display text-xl leading-none text-bronze">2</span><span>Izza messages you on Viber or WhatsApp to talk it through. Your slot is held meanwhile.</span></li>
         <li class="flex gap-3"><span class="font-display text-xl leading-none text-bronze">3</span><span>Once she confirms, you get an email with everything to know before your visit.</span></li>
       </ol>
@@ -330,7 +337,7 @@
     <div class="space-y-8">
       <div>
         <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">Do I need a consultation first?</h3>
-        <p class="text-ink/85 leading-relaxed">Yes — a free 10-minute online consultation is required before booking any brow treatment. Just send a photo of your bare brows (no makeup) via Viber, WhatsApp, Instagram, or email. Izza will confirm if you're a good candidate and recommend the best technique.</p>
+        <p class="text-ink/85 leading-relaxed">Yes — a free 10-minute online consultation is required before booking any brow treatment. Just send a photo of your bare brows (no makeup) <a href="/consult" class="underline decoration-bronze/50 hover:text-bronze">here on the site</a>, or via Viber, WhatsApp, Instagram, or email. Izza will confirm if you're a good candidate and recommend the best technique.</p>
       </div>
       <div>
         <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">Am I a candidate?</h3>
@@ -488,6 +495,8 @@ document.querySelectorAll('a').forEach(function(link) {
     link.addEventListener('click', () => trackConversion('viber', 500));
   } else if (href.includes('wa.me') || href.includes('whatsapp')) {
     link.addEventListener('click', () => trackConversion('whatsapp', 500));
+  } else if (href.startsWith('/consult')) {
+    link.addEventListener('click', () => trackConversion('brow_check', 1500));
   } else if (href.startsWith('/book')) {
     link.addEventListener('click', () => trackConversion('book_page', 1500));
   } else if (href === '#book') {
