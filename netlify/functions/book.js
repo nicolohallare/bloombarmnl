@@ -14,6 +14,7 @@ import {
   IZZA_NUMBER, CHAT_APPS, LEAD_DAYS, HORIZON,
 } from './lib/core.js'
 import { notifyStudio } from './lib/push.js'
+import { classify } from './lib/source.js'
 
 const clean = (v, max = 400) => String(v ?? '').trim().slice(0, max)
 
@@ -109,6 +110,7 @@ export default async (req) => {
       source:           clean(body.source, 60) || null,
       notes:            clean(body.notes, 1000) || null,
       status:           'pending',
+      visit_source:     classify(body.visit || {}),
     }
 
     let booking = null
@@ -126,6 +128,7 @@ export default async (req) => {
           await removePhoto(photoPath)
           return oops('Sorry — someone just took that slot. Please pick another time.', 409)
         }
+        if (msg.includes('visit_source') && 'visit_source' in row) { delete row.visit_source; attempt--; continue }
         if (msg.includes('ref')) continue        // reference collision, try again
         // Database not yet updated with the analytics column: save without it
         if (msg.includes('ga_client_id') && 'ga_client_id' in row) { delete row.ga_client_id; attempt--; continue }

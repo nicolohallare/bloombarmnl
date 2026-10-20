@@ -9,6 +9,7 @@ import {
   IZZA_NUMBER, CHAT_APPS,
 } from './lib/core.js'
 import { notifyStudio } from './lib/push.js'
+import { classify } from './lib/source.js'
 
 const clean = (v, max = 400) => String(v ?? '').trim().slice(0, max)
 const PHOTO_TYPES = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp' }
@@ -78,6 +79,7 @@ export default async (req) => {
       photo_path:   photoPath,
       photo_url:    photoUrl,
       ga_client_id: /^\d{1,20}\.\d{1,20}$/.test(gaId) ? gaId : null,
+      visit_source: classify(body.visit || {}),
     }
 
     let consult = null
@@ -90,7 +92,9 @@ export default async (req) => {
         })
         consult = inserted?.[0]
       } catch (e) {
-        if (JSON.stringify(e.detail || e.message || '').includes('ref')) continue   // reference collision
+        const msg = JSON.stringify(e.detail || e.message || '')
+        if (msg.includes('visit_source') && 'visit_source' in row) { delete row.visit_source; attempt--; continue }
+        if (msg.includes('ref')) continue   // reference collision
         throw e
       }
     }
