@@ -357,7 +357,7 @@ async function init() {
       <button class="card-pick" data-id="${s.id}" data-name="${s.name}" data-first="${s.first_time_ok}" aria-pressed="false">
         <div class="flex items-baseline justify-between gap-3">
           <div class="font-display text-xl font-light">${s.name}</div>
-          ${s.show_price && s.price != null ? `<div class="text-sm font-medium whitespace-nowrap">${Number(s.price) > 0 ? '₱' + Number(s.price).toLocaleString('en-PH') : 'Included'}</div>` : ''}
+          ${s.show_price && s.price != null ? `<div class="text-sm text-mute whitespace-nowrap">${Number(s.price) > 0 ? '₱' + Number(s.price).toLocaleString('en-PH') : 'Included'}</div>` : ''}
         </div>
         ${s.blurb ? `<div class="sub text-sm text-mute mt-1 leading-snug">${s.blurb}</div>` : ''}
       </button>`).join('')
