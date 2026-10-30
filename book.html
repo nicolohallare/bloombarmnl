@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Book an Appointment | Bloom Bar MNL</title>
-<meta name="description" content="Request your microblading, combination or powder brow appointment with Izza Hallare at Bloom Bar MNL, Valle Verde, Pasig City." />
+<meta name="description" content="Request your microblading, combination or powder brow appointment with Izza Hallare at Bloom Bar MNL, Valle Verde, Pasig City. ₱10,000 with the second session included." />
 <meta name="robots" content="noindex" />
 <link rel="canonical" href="https://bloombarmnl.com/book" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFFFFF'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-family='Georgia,serif' font-size='70' fill='%231A1612' font-weight='300'%3EB%3C/text%3E%3C/svg%3E" />
@@ -355,7 +355,10 @@ async function init() {
 
     $('#services').innerHTML = data.services.map(s => `
       <button class="card-pick" data-id="${s.id}" data-name="${s.name}" data-first="${s.first_time_ok}" aria-pressed="false">
-        <div class="font-display text-xl font-light">${s.name}</div>
+        <div class="flex items-baseline justify-between gap-3">
+          <div class="font-display text-xl font-light">${s.name}</div>
+          ${s.show_price && s.price != null ? `<div class="text-sm font-medium whitespace-nowrap">${Number(s.price) > 0 ? '₱' + Number(s.price).toLocaleString('en-PH') : 'Included'}</div>` : ''}
+        </div>
         ${s.blurb ? `<div class="sub text-sm text-mute mt-1 leading-snug">${s.blurb}</div>` : ''}
       </button>`).join('')
 

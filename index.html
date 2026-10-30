@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Bloom Bar MNL | Microblading, Powder & Combo Brows in Pasig, Manila</title>
-<meta name="description" content="Semi-permanent eyebrows by Izza Hallare, US-certified PMU artist. Microblading, powder brows, and combination brows in Valle Verde, Pasig City, Metro Manila." />
+<meta name="description" content="Microblading, combo and powder brows for ₱10,000, second session included. Semi-permanent eyebrows by Izza Hallare, US-certified PMU artist in Valle Verde, Pasig City." />
 <meta name="keywords" content="microblading manila, microblading pasig, powder brows manila, combo brows philippines, eyebrow embroidery pasig, PMU manila, bloom bar mnl" />
 <link rel="canonical" href="https://bloombarmnl.com/" />
 <meta property="og:type" content="website" />
@@ -62,9 +62,10 @@
   "openingHoursSpecification": [{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],
   "sameAs": ["https://www.instagram.com/bloombarmnl/","https://www.facebook.com/profile.php?id=100084843514331"],
   "hasOfferCatalog": {"@type":"OfferCatalog","name":"Brow Services","itemListElement":[
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Microblading"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Combination Brows"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Powder Brows"}}
+    {"@type":"Offer","price":"10000","priceCurrency":"PHP","description":"Includes the second session 6 to 10 weeks later","itemOffered":{"@type":"Service","name":"Microblading"}},
+    {"@type":"Offer","price":"10000","priceCurrency":"PHP","description":"Includes the second session 6 to 10 weeks later","itemOffered":{"@type":"Service","name":"Combination Brows"}},
+    {"@type":"Offer","price":"10000","priceCurrency":"PHP","description":"Includes the second session 6 to 10 weeks later","itemOffered":{"@type":"Service","name":"Powder Brows"}},
+    {"@type":"Offer","price":"5000","priceCurrency":"PHP","itemOffered":{"@type":"Service","name":"Annual Retouch"}}
   ]},
   "potentialAction": {
     "@type": "ReserveAction",
@@ -106,7 +107,14 @@
     <div class="max-w-[260px] mx-auto mb-3">
       <img src="/images/logo-black.png" alt="Bloom Bar Beauty Studio" class="w-full" />
     </div>
-    <div class="text-[11px] tracking-widest-2 uppercase text-mute mb-10">Permanent Makeup</div>
+    <div class="text-[11px] tracking-widest-2 uppercase text-mute mb-8">Permanent Makeup</div>
+
+    <!-- PRICE: customers ask first, so it leads -->
+    <a href="#rates" class="block border border-ink rounded-3xl px-6 pt-5 pb-5 mb-8 hover:bg-ink hover:text-paper transition-colors group">
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-1">All brow treatments</div>
+      <div class="font-display text-5xl font-light leading-none">₱10,000</div>
+      <div class="text-sm mt-2 text-ink/80 group-hover:text-paper/85">Microblading, Combo or Powder Brows<br/>Second session included</div>
+    </a>
 
     <!-- OUTLINED BUTTONS -->
     <div class="space-y-3 mb-7">
@@ -169,9 +177,22 @@
       <a href="/consult" class="block bg-paper text-ink rounded-full px-6 py-3.5 text-[13px] tracking-[0.15em] uppercase font-medium hover:bg-bronze hover:text-paper transition-colors">Get a free brow check</a>
     </div>
 
+    <div id="rates" class="max-w-md mx-auto bg-paper rounded-3xl border border-ink px-6 py-7 mb-8 text-center scroll-mt-6">
+      <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-2">Rates · One price</div>
+      <div class="font-display text-6xl font-light leading-none mb-2">₱10,000</div>
+      <p class="text-sm text-ink/80 mb-5">Microblading, Combination or Powder Brows. Pick the technique that suits you, the price is the same.</p>
+      <ul class="text-sm text-left space-y-2.5 border-t border-line pt-5">
+        <li class="flex justify-between gap-4"><span>First session</span><span class="text-mute">Included</span></li>
+        <li class="flex justify-between gap-4"><span>Second session, 6–10 weeks later</span><span class="text-mute">Included</span></li>
+        <li class="flex justify-between gap-4"><span>Free brow check before you book</span><span class="text-mute">Free</span></li>
+        <li class="flex justify-between gap-4"><span>Correcting old brows by another artist</span><span class="text-mute">+₱3,500</span></li>
+        <li class="flex justify-between gap-4"><span>Annual retouch</span><span class="text-mute">₱5,000</span></li>
+      </ul>
+    </div>
+
     <div class="grid gap-4 md:grid-cols-3 mb-8">
       <div class="bg-paper rounded-3xl border border-ink px-6 py-6 flex flex-col">
-        <a href="/microblading" class="hover:text-bronze transition-colors"><div class="font-display text-2xl font-light mb-1">Microblading</div>
+        <a href="/microblading" class="hover:text-bronze transition-colors"><div class="flex items-baseline justify-between gap-3 mb-1"><div class="font-display text-2xl font-light">Microblading</div><div class="text-sm font-medium whitespace-nowrap">₱10,000</div></div>
         <p class="text-mute text-sm leading-snug mb-4">Fine, hairlike strokes. The most natural daytime look. Lasts 1–2 years.</p></a>
         <div class="flex items-center justify-between gap-3 mt-auto">
           <a href="/book?service=microblading" class="text-[11px] tracking-widest-2 uppercase text-ink hover:text-bronze">Request a slot &rarr;</a>
@@ -179,7 +200,7 @@
         </div>
       </div>
       <div class="bg-paper rounded-3xl border border-ink px-6 py-6 flex flex-col">
-        <a href="/combo-brows" class="hover:text-bronze transition-colors"><div class="font-display text-2xl font-light mb-1">Combination Brows</div>
+        <a href="/combo-brows" class="hover:text-bronze transition-colors"><div class="flex items-baseline justify-between gap-3 mb-1"><div class="font-display text-2xl font-light">Combination Brows</div><div class="text-sm font-medium whitespace-nowrap">₱10,000</div></div>
         <p class="text-mute text-sm leading-snug mb-4">Microblading plus shading for added density and definition. Lasts up to 3 years.</p></a>
         <div class="flex items-center justify-between gap-3 mt-auto">
           <a href="/book?service=combination-brows" class="text-[11px] tracking-widest-2 uppercase text-ink hover:text-bronze">Request a slot &rarr;</a>
@@ -187,7 +208,7 @@
         </div>
       </div>
       <div class="bg-paper rounded-3xl border border-ink px-6 py-6 flex flex-col">
-        <a href="/powder-brows" class="hover:text-bronze transition-colors"><div class="font-display text-2xl font-light mb-1">Powder Brows</div>
+        <a href="/powder-brows" class="hover:text-bronze transition-colors"><div class="flex items-baseline justify-between gap-3 mb-1"><div class="font-display text-2xl font-light">Powder Brows</div><div class="text-sm font-medium whitespace-nowrap">₱10,000</div></div>
         <p class="text-mute text-sm leading-snug mb-4">Soft shaded effect like powder makeup, for a bolder look. Lasts 2–3 years.</p></a>
         <div class="flex items-center justify-between gap-3 mt-auto">
           <a href="/book?service=powder-brows" class="text-[11px] tracking-widest-2 uppercase text-ink hover:text-bronze">Request a slot &rarr;</a>
@@ -336,6 +357,10 @@
       <h2 class="font-display text-3xl md:text-5xl font-light">Common <em class="italic">questions.</em></h2>
     </div>
     <div class="space-y-8">
+      <div>
+        <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">How much does it cost?</h3>
+        <p class="text-ink/85 leading-relaxed">₱10,000 for Microblading, Combination Brows or Powder Brows. That includes your first session and the second session 6–10 weeks later. Correcting old microblading or powder brows done by another artist adds ₱3,500. The annual retouch is ₱5,000, and the brow check before you book is free.</p>
+      </div>
       <div>
         <h3 class="font-display text-xl md:text-2xl font-light text-bronze mb-2">Do I need a consultation first?</h3>
         <p class="text-ink/85 leading-relaxed">Yes — a free 10-minute online consultation is required before booking any brow treatment. Just send a photo of your bare brows (no makeup) <a href="/consult" class="underline decoration-bronze/50 hover:text-bronze">here on the site</a>, or via Viber, WhatsApp, Instagram, or email. Izza will confirm if you're a good candidate and recommend the best technique.</p>
