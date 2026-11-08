@@ -8,6 +8,16 @@
     var get = function (s, k) { try { return s.getItem(k) } catch (e) { return null } }
     var set = function (s, k, v) { try { s.setItem(k, v) } catch (e) {} }
 
+    // Brow Circle: a client's personal link (?ref=ana-3f9c2), kept 60 days
+    var ref = (q.get('ref') || '').toLowerCase()
+    if (/^[a-z]{1,30}-[0-9a-f]{5}$/.test(ref)) set(localStorage, 'bb_ref', JSON.stringify({ code: ref, at: Date.now() }))
+    window.bbRef = function () {
+      try {
+        var r = JSON.parse(localStorage.getItem('bb_ref') || 'null')
+        return r && Date.now() - r.at < 60 * 864e5 ? r.code : ''
+      } catch (e) { return '' }
+    }
+
     if (q.get('notrack') === '1') set(localStorage, 'bb_notrack', '1')
     if (q.get('notrack') === '0') { try { localStorage.removeItem('bb_notrack') } catch (e) {} }
 

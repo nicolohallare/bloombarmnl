@@ -10,6 +10,7 @@ import {
 } from './lib/core.js'
 import { notifyStudio } from './lib/push.js'
 import { classify } from './lib/source.js'
+import { resolveReferrer, tagReferrer } from './lib/referral.js'
 
 const clean = (v, max = 400) => String(v ?? '').trim().slice(0, max)
 const PHOTO_TYPES = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp' }
@@ -101,10 +102,13 @@ export default async (req) => {
     if (!consult) throw new Error('could not save consult')
     saved = true
 
+    const referrer = await resolveReferrer(body.ref)
+    await tagReferrer('consult_requests', consult.id, referrer)
+
     // ── Phone alert in Izza's studio app (no names in the alert) ────────────
     await notifyStudio({
       title: 'New brow check',
-      body: `${interest} · photo sent, reply on ${CHAT_APPS[chatApp]}`,
+      body: `${interest} · photo sent, reply on ${CHAT_APPS[chatApp]}${body.ref && /^[a-z]{1,30}-[0-9a-f]{5}$/.test(String(body.ref)) ? ' · referred by a client' : ''}`,
       url: '/?screen=bookings', tag: consult.ref,
     })
 
@@ -126,6 +130,7 @@ export default async (req) => {
           <tr><td style="color:#8B7E6C;">Interested in</td><td>${esc(interest)}</td></tr>
           ${email ? `<tr><td style="color:#8B7E6C;">Email</td><td>${esc(email)}</td></tr>` : ''}
           <tr><td style="color:#8B7E6C;">Found you via</td><td>${esc(row.source) || '—'}</td></tr>
+          ${referrer ? `<tr><td style="color:#8B7E6C;">Brow Circle</td><td><strong>Sent by ${esc(referrer.name)}</strong></td></tr>` : ''}
           <tr><td style="color:#8B7E6C;">Reference</td><td>${consult.ref}</td></tr>
         </table>
         ${row.notes ? `<p style="margin-top:14px;"><span style="color:#8B7E6C;">Their message</span><br/>${esc(row.notes)}</p>` : ''}

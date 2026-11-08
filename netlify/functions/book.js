@@ -15,6 +15,7 @@ import {
 } from './lib/core.js'
 import { notifyStudio } from './lib/push.js'
 import { classify } from './lib/source.js'
+import { resolveReferrer, tagReferrer } from './lib/referral.js'
 
 const clean = (v, max = 400) => String(v ?? '').trim().slice(0, max)
 
@@ -141,6 +142,9 @@ export default async (req) => {
     }
     saved = true
 
+    const referrer = await resolveReferrer(body.ref)
+    await tagReferrer('bookings', booking.id, referrer)
+
     // ── Phone alert in Izza's studio app (no names in the alert) ────────────
     await notifyStudio({
       title: 'New booking request',
@@ -189,6 +193,7 @@ export default async (req) => {
           <tr><td style="color:#8B7E6C;">First time</td><td>${booking.first_time ? 'Yes' : 'No'}</td></tr>
           <tr><td style="color:#8B7E6C;">Consulted</td><td>${booking.had_consultation ? 'Yes' : 'Not yet'}</td></tr>
           <tr><td style="color:#8B7E6C;">Found you via</td><td>${esc(booking.source) || '—'}</td></tr>
+          ${referrer ? `<tr><td style="color:#8B7E6C;">Brow Circle</td><td><strong>Sent by ${esc(referrer.name)}</strong></td></tr>` : ''}
         </table>
         ${booking.notes ? `<p style="margin-top:14px;"><span style="color:#8B7E6C;">Notes</span><br/>${esc(booking.notes)}</p>` : ''}
         <p style="margin-top:14px;color:#8B7E6C;font-size:13px;">Her brow photo is attached.</p>

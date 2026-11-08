@@ -319,6 +319,7 @@ $('#form').addEventListener('submit', async (e) => {
     photo:      state.photo,
     gaClientId: gaClientId(),
     visit: window.bbVisit || null,
+    ref: (window.bbRef && window.bbRef()) || new URLSearchParams(location.search).get('ref') || '',
     website:    $('[name=website]').value,
   }
 

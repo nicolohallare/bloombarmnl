@@ -13,6 +13,9 @@
 
 # ── Free brow check (send a photo, Izza messages you) ──
 /consult          /consult.html                                  200
+/gift             /gift.html                                     200
+/gifts            /gift                                          301!
+/gift-certificate /gift                                          301!
 /brow-check       /consult                                       301!
 /free-consult     /consult                                       301!
 
