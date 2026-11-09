@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pay Bloom Bar | Bloom Bar MNL</title>
+<meta name="description" content="Payment details for Bloom Bar MNL: GCash and InstaPay QR codes." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://bloombarmnl.com/pay" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFFFFF'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-family='Georgia,serif' font-size='70' fill='%231A1612' font-weight='300'%3EB%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" />
+
+<!-- Google tag — Google Ads (G-ZNEQ7JYC1Y) + GA4 (G-28L6J2S5SM), same as the homepage -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: '#FFFFFF', sand: '#DEDACF', stone: '#C4BFB2',
+          ink: '#1A1612', mute: '#8B7E6C', bronze: '#A88860',
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        },
+        letterSpacing: { 'widest-2': '0.3em' },
+      },
+    },
+  };
+</script>
+
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; background: #FFFFFF; color: #1A1612; }
+  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .btn-line { display:inline-block; border:1.5px solid #1A1612; border-radius:9999px; padding:.55rem 1.1rem;
+              font-size:.7rem; font-weight:500; letter-spacing:.15em; text-transform:uppercase; transition:all .2s; }
+  .btn-line:hover { background:#1A1612; color:#fff; }
+  .qr { width:100%; border-radius:1.25rem; border:1px solid #DEDACF; display:block; }
+</style>
+<script defer src="/js/visit.js"></script>
+</head>
+<body class="bg-paper">
+
+<header class="px-5 pt-8 pb-6 text-center border-b border-sand">
+  <a href="/" class="inline-block max-w-[190px] mx-auto">
+    <img src="/images/logo-black.png" alt="Bloom Bar Beauty Studio" class="w-full" />
+  </a>
+  <div class="text-[10px] tracking-widest-2 uppercase text-mute mt-3">Valle Verde, Pasig &middot; By appointment</div>
+</header>
+
+<main class="px-5 py-10 max-w-md mx-auto">
+  <div class="text-[10px] tracking-widest-2 uppercase text-bronze mb-3 text-center">&middot; Payment &middot;</div>
+  <h1 class="font-display text-4xl font-light text-center mb-3">Paying <em class="italic">Bloom Bar.</em></h1>
+  <p class="text-mute text-sm text-center leading-relaxed mb-9">
+    Send by GCash, or from any bank or e-wallet with the InstaPay QR.
+    Then send Izza a screenshot on Viber or WhatsApp.
+  </p>
+
+  <section class="mb-10">
+    <div class="flex items-baseline justify-between mb-3">
+      <h2 class="font-display text-2xl font-light">GCash</h2>
+      <span class="text-xs text-mute">Mary Clare H.</span>
+    </div>
+    <div class="bg-sand/50 rounded-2xl px-5 py-4 flex items-center justify-between gap-3 mb-4">
+      <span class="text-lg tracking-wide" id="gcashNo">0908 819 0053</span>
+      <button type="button" class="btn-line" id="copyNo">Copy</button>
+    </div>
+    <img class="qr" src="/images/pay/gcash.jpg" alt="GCash QR code for Mary Clare H., 0908 819 0053" />
+  </section>
+
+  <section class="mb-10">
+    <div class="flex items-baseline justify-between mb-3">
+      <h2 class="font-display text-2xl font-light">Bank or e-wallet</h2>
+      <span class="text-xs text-mute">GoTyme · InstaPay</span>
+    </div>
+    <p class="text-mute text-sm leading-relaxed mb-4">Account name Mary Clare Hallare. Works from BPI, BDO, Maya and other InstaPay banks.</p>
+    <img class="qr" src="/images/pay/gotyme.jpg" alt="GoTyme Bank InstaPay QR code for Mary Clare Hallare" />
+  </section>
+
+  <div class="bg-sand/50 rounded-2xl px-5 py-5 text-sm leading-relaxed">
+    <p class="font-medium mb-1">Paying from this phone?</p>
+    <p class="text-mute">Press and hold a QR code to save it to Photos. In your banking app, choose Scan QR, then upload the saved image.</p>
+  </div>
+</main>
+
+<footer class="px-5 py-9 border-t border-sand text-center">
+  <div class="text-[10px] tracking-widest-2 uppercase text-mute">&copy; 2026 Bloom Bar MNL</div>
+</footer>
+
+<script>
+document.getElementById('copyNo').addEventListener('click', async (e) => {
+  try { await navigator.clipboard.writeText('09088190053'); e.target.textContent = 'Copied' }
+  catch { e.target.textContent = '09088190053' }
+  setTimeout(() => { e.target.textContent = 'Copy' }, 2500)
+})
+</script>
+</body>
+</html>

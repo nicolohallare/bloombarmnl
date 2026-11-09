@@ -11,8 +11,8 @@ const clean = (v, max = 400) => String(v ?? '').trim().slice(0, max)
 
 // What can be given, and what it costs (same as the Rates on the homepage)
 export const GIFTS = {
-  treatment: { label: 'Brow treatment', amount: 10000, detail: 'Microblading, Combination or Powder Brows, second session included' },
-  retouch:   { label: 'Annual retouch', amount: 5000,  detail: 'A yearly refresh for brows done at Bloom Bar' },
+  treatment: { label: 'Brow treatment', amount: 10000, detail: 'Microblading, Combination or Powder Brows, second session included. For brows with no existing permanent makeup' },
+  retouch:   { label: 'Annual retouch', amount: 5000,  detail: 'A yearly refresh, for brows done at Bloom Bar MNL only' },
 }
 
 const peso = (n) => '₱' + Number(n).toLocaleString('en-PH')
@@ -107,6 +107,7 @@ export default async (req) => {
         html: emailShell(`
           <p>Hi ${esc(buyer.split(' ')[0])},</p>
           <p>Thank you for choosing a Bloom Bar gift for <strong>${esc(recipient)}</strong>: ${gift.label.toLowerCase()}, ${peso(gift.amount)}.</p>
+          <p style="color:#8B7E6C;font-size:13px;">${gift.detail}.</p>
           <p>Izza will message you on <strong>${app}</strong> at <strong>${esc(contact)}</strong> to arrange payment
           (GCash, bank transfer or card), then send you the certificate to give.</p>
           <p>Questions? Message her on ${app} at <strong>${IZZA_NUMBER}</strong> and mention <strong>${saved.ref}</strong>.</p>
