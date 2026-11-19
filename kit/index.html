@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<style>body{margin:0}</style>
+<title>Bloom Bar Posting Kit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column, phone first. Each post is a dated entry: image, save, two captions, steps. */
+:root {
+  --bg: #FAF8F4; --surface: #FFFFFF; --stone: #ECE7DF; --line: #E0D9CE;
+  --ink: #1F1B17; --soft: #5A524A; --accent: #7A5F45; --btn: #1F1B17; --btn-ink: #FAF8F4;
+  --display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --text: 'Inter', -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #17140F; --surface: #211D18; --stone: #2B2620; --line: #3A332B;
+  --ink: #F1EBE2; --soft: #C3B8AA; --accent: #CDB28E; --btn: #F1EBE2; --btn-ink: #17140F; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #17140F; --surface: #211D18; --stone: #2B2620; --line: #3A332B;
+  --ink: #F1EBE2; --soft: #C3B8AA; --accent: #CDB28E; --btn: #F1EBE2; --btn-ink: #17140F; color-scheme: dark }
+
+body { background: var(--bg); color: var(--ink); font-family: var(--text); font-size: 15px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 620px; margin: 0 auto; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 40px; }
+h1, h2 { font-family: var(--display); font-weight: 400; line-height: 1.08; margin: 0; text-wrap: balance; }
+h1 { font-size: 44px; } h1 i, h2 i { font-style: italic; }
+h2 { font-size: 32px; }
+h3 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin: 0; }
+p { margin: 0; }
+.eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+.lede { color: var(--soft); font-size: 16px; max-width: 60ch; }
+header { display: flex; flex-direction: column; gap: 12px; }
+
+.plan { display: grid; grid-template-columns: auto 1fr; gap: 0; border-top: 1px solid var(--line); }
+.plan > * { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.plan .d { font-variant-numeric: tabular-nums; font-weight: 600; padding-right: 16px; white-space: nowrap; }
+.plan a { color: inherit; }
+
+section.entry { display: flex; flex-direction: column; gap: 16px; padding-top: 28px; border-top: 2px solid var(--ink); }
+.when { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: baseline; }
+.when .date { font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tag { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; color: var(--soft); }
+
+.media { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.media img, .media video { width: 100%; max-width: 100%; border-radius: 14px; border: 1px solid var(--line); background: var(--stone); display: block; }
+.media.tall img, .media.tall video { width: min(100%, 320px); }
+.hint { font-size: 13px; color: var(--soft); }
+
+a.btn { text-decoration: none; display: inline-block; }
+.btn { appearance: none; border: 0; border-radius: 999px; background: var(--btn); color: var(--btn-ink); font: 600 12px/1 var(--text);
+  letter-spacing: .12em; text-transform: uppercase; padding: 13px 20px; cursor: pointer; }
+.btn.line { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.cap { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.cap .head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.cap pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 15px/1.6 var(--text); color: var(--ink); user-select: all; -webkit-user-select: all; }
+.status { font-size: 13px; color: var(--accent); min-height: 1em; }
+
+ol.steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: var(--soft); }
+ol.steps b { color: var(--ink); font-weight: 600; }
+.box { background: var(--stone); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.box ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+footer { font-size: 13px; color: var(--soft); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Bloom Bar MNL · Instagram & Facebook</p>
+  <h1>Your holiday <i>posting kit</i></h1>
+  <p class="lede">Four posts, one reel and a story, in the order to post them. Save each image here, copy the caption for Instagram or Facebook, and follow the steps under it.</p>
+</header>
+
+<div class="box">
+  <h3>Do this once, before the first post</h3>
+  <ul>
+    <li><b>Instagram bio link:</b> Edit profile › Links › Add external link › <b>bloombarmnl.com</b>. From Nov 30 add a second link, <b>bloombarmnl.com/gift</b>, titled “Gift certificates”.</li>
+    <li><b>Facebook page:</b> make sure the page button says <b>Book now</b> or <b>Send message</b> and the website is bloombarmnl.com.</li>
+    <li><b>Posting to both:</b> in <b>Meta Business Suite</b>, tap Create post, tick Instagram and Facebook, then turn on <b>Customize post for Facebook and Instagram</b> so each gets its own caption below. Instagram captions can’t hold clickable links; Facebook’s can, so the Facebook versions use the full link.</li>
+  </ul>
+</div>
+
+<div>
+  <h3 style="margin-bottom:10px">The plan</h3>
+  <div class="plan">
+    <span class="d">Nov 19–20</span><a href="#post1">Post 1 · Your 13th month, well spent</a>
+    <span class="d">Nov 24</span><a href="#post2">Post 2 · Healed results</a>
+    <span class="d">Nov 25</span><a href="#story">Story · December slots (repeat weekly)</a>
+    <span class="d">Nov 30</span><a href="#post3">Post 3 · Gift certificates</a>
+    <span class="d">Dec 2</span><a href="#reel">Reel · Gift certificates</a>
+    <span class="d">Dec 14–20</span><a href="#story">Story · last-minute gifts</a>
+  </div>
+</div>
+
+<!-- POST 1 -->
+<section class="entry" id="post1">
+  <div class="when"><span class="date">Thu Nov 19 or Fri Nov 20 · 7–9 pm</span><span class="tag">Feed post</span><span class="tag">IG + FB</span></div>
+  <h2>Post 1 · <i>Your 13th month, well spent</i></h2>
+  <div class="media">
+    <img src="/kit/post1.png" alt="Bloom Bar post: Your 13th month, well spent" width="1080" height="1350" loading="lazy">
+    <a class="btn" href="/kit/post1.png" download="BloomBar-Post1-13th-month.png">Save image</a>
+    <p class="hint">Or press and hold the picture and choose Save to Photos.</p>
+  </div>
+  <div class="cap"><div class="head"><h3>Instagram caption</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Your 13th month, well spent.
+
+Brows take about two weeks to heal. Book by early December and they’re ready for every Christmas and New Year photo.
+
+Microblading, Combination or Powder Brows: ₱10,000, second session included. It starts with a free brow check. Link in bio.
+
+#microbladingmanila #pasigcity #brows #permanentmakeupph</pre>
+    <p class="status"></p></div>
+  <div class="cap"><div class="head"><h3>Facebook caption</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Your 13th month, well spent.
+
+Brows take about two weeks to heal. Book by early December and they’re ready for every Christmas and New Year photo.
+
+Microblading, Combination or Powder Brows: ₱10,000, second session included. Send your bare brows for a free check: bloombarmnl.com/consult</pre>
+    <p class="status"></p></div>
+</section>
+
+<!-- POST 2 -->
+<section class="entry" id="post2">
+  <div class="when"><span class="date">Tue Nov 24 · 7–9 pm</span><span class="tag">Feed post</span><span class="tag">IG + FB</span></div>
+  <h2>Post 2 · <i>Healed results</i></h2>
+  <div class="media">
+    <img src="/kit/post2.png" alt="Bloom Bar post: Still hers, just fuller, healed before and after" width="1080" height="1350" loading="lazy">
+    <a class="btn" href="/kit/post2.png" download="BloomBar-Post2-healed-results.png">Save image</a>
+    <p class="hint">Or press and hold the picture and choose Save to Photos.</p>
+  </div>
+  <div class="cap"><div class="head"><h3>Instagram caption</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Healed results, no makeup. Still hers, just fuller.
+
+Send your bare brows for a free check and I’ll tell you which technique suits you. Link in bio.
+
+#microbladingmanila #healedbrows #pasigcity</pre>
+    <p class="status"></p></div>
+  <div class="cap"><div class="head"><h3>Facebook caption</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Healed results, no makeup. Still hers, just fuller.
+
+Send your bare brows for a free check and I’ll tell you which technique suits you: bloombarmnl.com/consult</pre>
+    <p class="status"></p></div>
+  <p class="hint">Prefer a different healed photo? Any healed before-and-after works with these captions.</p>
+</section>
+
+<!-- STORY -->
+<section class="entry" id="story">
+  <div class="when"><span class="date">Wed Nov 25, then every Wednesday to Dec 9</span><span class="tag">Story</span><span class="tag">IG + FB</span></div>
+  <h2>Story · <i>December slots</i></h2>
+  <div class="media tall">
+    <img src="/kit/story.png" alt="Bloom Bar story: brows done before the holidays" width="1080" height="1920" loading="lazy">
+    <a class="btn" href="/kit/story.png" download="BloomBar-Story-December-slots.png">Save image</a>
+    <p class="hint">Or press and hold the picture and choose Save to Photos.</p>
+  </div>
+  <ol class="steps">
+    <li>Add it to your story, then tap the sticker icon › <b>Link</b> › <b>bloombarmnl.com/consult</b>, label it “Free brow check”.</li>
+    <li>Add a text sticker with what’s really open, like <b>“3 slots left before Christmas”</b>.</li>
+    <li>Tap <b>Share to Facebook story too</b> if it’s offered, and save it to a <b>Holidays</b> highlight.</li>
+    <li><b>Dec 14–20:</b> there’s no time to heal before Christmas, so share the reel to your story with a link sticker to <b>bloombarmnl.com/gift</b> and the text “Last-minute gift, sent the same day”.</li>
+  </ol>
+</section>
+
+<!-- POST 3 -->
+<section class="entry" id="post3">
+  <div class="when"><span class="date">Mon Nov 30 · 7–9 pm</span><span class="tag">Feed post</span><span class="tag">IG + FB</span></div>
+  <h2>Post 3 · <i>Gift certificates</i></h2>
+  <div class="media">
+    <img src="/kit/post3.png" alt="Bloom Bar post: Give the gift of brows, with a certificate" width="1080" height="1350" loading="lazy">
+    <a class="btn" href="/kit/post3.png" download="BloomBar-Post3-gift-certificates.png">Save image</a>
+    <p class="hint">Or press and hold the picture and choose Save to Photos.</p>
+  </div>
+  <div class="cap"><div class="head"><h3>Instagram caption</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Give the gift of waking up with brows done.
+
+Bloom Bar gift certificates:
+Brow treatment, ₱10,000. For brows with no existing permanent makeup.
+Annual retouch, ₱5,000. For brows done at Bloom Bar MNL.
+
+Sent to you by chat, ready to give, valid for one year. Order at bloombarmnl.com/gift, link in bio.
+
+#christmasgiftideas #giftideasph #microbladingmanila</pre>
+    <p class="status"></p></div>
+  <div class="cap"><div class="head"><h3>Facebook caption</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Give the gift of waking up with brows done.
+
+Bloom Bar gift certificates:
+Brow treatment, ₱10,000. For brows with no existing permanent makeup.
+Annual retouch, ₱5,000. For brows done at Bloom Bar MNL.
+
+Sent to you by chat, ready to give, valid for one year. Order here: bloombarmnl.com/gift</pre>
+    <p class="status"></p></div>
+  <p class="hint">Same day: add bloombarmnl.com/gift as the second link in your Instagram bio.</p>
+</section>
+
+<!-- REEL -->
+<section class="entry" id="reel">
+  <div class="when"><span class="date">Wed Dec 2 · 7–9 pm</span><span class="tag">Reel</span><span class="tag">IG + FB</span></div>
+  <h2>Reel · <i>Gift certificates</i></h2>
+  <div class="media tall">
+    <video src="/kit/reel.mp4" controls playsinline muted preload="metadata" width="1080" height="1920" aria-label="Gift certificates reel, 18 seconds"></video>
+    <a class="btn" href="/kit/reel.mp4" download="BloomBar-Reel-Gift-Certificates.mp4">Save video</a>
+    <p class="hint">Or press and hold the picture and choose Save to Photos.</p>
+  </div>
+  <ol class="steps">
+    <li>On Instagram tap <b>+</b> › <b>Reel</b>, pick the video. It’s 18 seconds and has no sound.</li>
+    <li>Tap <b>Audio</b> and choose a soft, popular song. Lower its volume so it stays in the background.</li>
+    <li>Set the cover to the first frame (“Give the gift of brows”). Turn on <b>Share to Facebook</b> if it’s offered, or post it on Facebook as a reel too.</li>
+  </ol>
+  <div class="cap"><div class="head"><h3>Reel caption (IG + FB)</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Give the gift of brows. A brow treatment, ₱10,000, for brows with no existing permanent makeup. Or an annual retouch, ₱5,000, for brows done at Bloom Bar MNL.
+
+Sent to you by chat, ready to give. bloombarmnl.com/gift</pre>
+    <p class="status"></p></div>
+</section>
+
+<!-- REPLIES -->
+<section class="entry" id="replies">
+  <h2>Replies to <i>keep handy</i></h2>
+  <p class="lede">Posts bring comments and DMs. Reply within the day, and move pricing questions to DMs.</p>
+  <div class="cap"><div class="head"><h3>“How much?” in comments</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Hi! I sent you a message.</pre>
+    <p class="status"></p></div>
+  <div class="cap"><div class="head"><h3>“How much?” in DMs</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Hi! It’s ₱10,000 for Microblading, Combination or Powder Brows, and the second session is included. If you already have permanent makeup on your brows, there’s an additional ₱3,500.
+
+Send me a photo of your bare brows, no makeup, and I’ll tell you which technique suits you. You can also send it here: bloombarmnl.com/consult</pre>
+    <p class="status"></p></div>
+  <div class="cap"><div class="head"><h3>Gift certificate questions</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Hi! You can request one at bloombarmnl.com/gift. Choose the gift and who it’s for, and I’ll message you to arrange payment by GCash or bank transfer. I’ll send the certificate the same day it’s paid.</pre>
+    <p class="status"></p></div>
+  <div class="cap"><div class="head"><h3>“Do you have slots before Christmas?”</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Hi! I still have a few December slots. Brows take about two weeks to heal, so booking by early December means they’re ready for Christmas. Send me your bare brows first and I’ll check dates for you.</pre>
+    <p class="status"></p></div>
+</section>
+
+<footer>Gift requests, brow checks and bookings from these posts arrive in your app with a phone alert, as usual.</footer>
+</div>
+
+<script>
+(function () {
+  function setStatus(el, text) { if (!el) return; el.textContent = text; setTimeout(function(){ el.textContent = ''; }, 4000); }
+
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var box = btn.closest('.cap'), pre = box.querySelector('pre'), st = box.querySelector('.status');
+      var text = pre.textContent;
+      function fallback() {
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        setStatus(st, 'Selected. Tap Copy on your phone’s menu.');
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = 'Copied'; setStatus(st, 'Copied. Paste it as the caption.');
+          setTimeout(function(){ btn.textContent = 'Copy'; }, 2500);
+        }, fallback);
+      } catch (e) { fallback(); }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
