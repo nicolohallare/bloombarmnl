@@ -45,7 +45,7 @@ section.entry { display: flex; flex-direction: column; gap: 16px; padding-top: 2
 .tag { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; color: var(--soft); }
 
 .media { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
-.media img, .media video { width: 100%; max-width: 100%; border-radius: 14px; border: 1px solid var(--line); background: var(--stone); display: block; }
+.media img, .media video { width: 100%; height: auto; max-width: 100%; border-radius: 14px; border: 1px solid var(--line); background: var(--stone); display: block; }
 .media.tall img, .media.tall video { width: min(100%, 320px); }
 .hint { font-size: 13px; color: var(--soft); }
 
@@ -60,6 +60,9 @@ a.btn { text-decoration: none; display: inline-block; }
 .cap pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 15px/1.6 var(--text); color: var(--ink); user-select: all; -webkit-user-select: all; }
 .status { font-size: 13px; color: var(--accent); min-height: 1em; }
 
+.strip { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+.slide { flex: none; width: 62%; max-width: 300px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; scroll-snap-align: start; }
+.slide img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); display: block; }
 ol.steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: var(--soft); }
 ol.steps b { color: var(--ink); font-weight: 600; }
 .box { background: var(--stone); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
@@ -96,6 +99,7 @@ footer { font-size: 13px; color: var(--soft); }
     <span class="d">Nov 30</span><a href="#post3">Post 3 · Gift certificates</a>
     <span class="d">Dec 2</span><a href="#reel">Reel · Gift certificates</a>
     <span class="d">Dec 14–20</span><a href="#story">Story · last-minute gifts</a>
+    <span class="d">In between</span><a href="#talk">New · four posts to get people talking</a>
   </div>
 </div>
 
@@ -218,6 +222,87 @@ Sent to you by chat, ready to give, valid for one year. Order here: bloombarmnl.
 
 Sent to you by chat, ready to give. bloombarmnl.com/gift</pre>
     <p class="status"></p></div>
+</section>
+
+<!-- TALK -->
+<section class="entry" id="talk">
+  <p class="eyebrow">New · posts made to be shared</p>
+  <h2>Posts to get <i>people talking</i></h2>
+  <p class="lede">People share posts that have an opinion, make them laugh, or make them think of a friend. These four do one each. Post them between the holiday posts, one every three or four days.</p>
+</section>
+
+<section class="entry" id="wont">
+  <div class="when"><span class="date">Post first · any evening, 7–9 pm</span><span class="tag">Carousel · 7 slides</span><span class="tag">IG + FB</span></div>
+  <h2>Carousel · <i>5 things I won’t do to your brows</i></h2>
+  <div class="strip"><div class="slide"><img src="/kit/wont-1.png" alt="Carousel slide 1 of 7" width="1080" height="1350" loading="lazy"><a class="btn" href="/kit/wont-1.png" download="BloomBar-5-things-1.png">Save 1</a></div><div class="slide"><img src="/kit/wont-2.png" alt="Carousel slide 2 of 7" width="1080" height="1350" loading="lazy"><a class="btn" href="/kit/wont-2.png" download="BloomBar-5-things-2.png">Save 2</a></div><div class="slide"><img src="/kit/wont-3.png" alt="Carousel slide 3 of 7" width="1080" height="1350" loading="lazy"><a class="btn" href="/kit/wont-3.png" download="BloomBar-5-things-3.png">Save 3</a></div><div class="slide"><img src="/kit/wont-4.png" alt="Carousel slide 4 of 7" width="1080" height="1350" loading="lazy"><a class="btn" href="/kit/wont-4.png" download="BloomBar-5-things-4.png">Save 4</a></div><div class="slide"><img src="/kit/wont-5.png" alt="Carousel slide 5 of 7" width="1080" height="1350" loading="lazy"><a class="btn" href="/kit/wont-5.png" download="BloomBar-5-things-5.png">Save 5</a></div><div class="slide"><img src="/kit/wont-6.png" alt="Carousel slide 6 of 7" width="1080" height="1350" loading="lazy"><a class="btn" href="/kit/wont-6.png" download="BloomBar-5-things-6.png">Save 6</a></div><div class="slide"><img src="/kit/wont-7.png" alt="Carousel slide 7 of 7" width="1080" height="1350" loading="lazy"><a class="btn" href="/kit/wont-7.png" download="BloomBar-5-things-7.png">Save 7</a></div></div>
+  <p class="hint">Save all seven, then choose them in order, 1 to 7, as one post.</p>
+  <div class="cap"><div class="head"><h3>Caption (IG + FB)</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>5 things I won’t do to your brows.
+
+I’d rather lose a booking than give you brows you’ll regret. Swipe through, then send this to the friend who keeps saying “I’m still thinking about it.”
+
+Free brow check: bloombarmnl.com/consult</pre>
+    <p class="status"></p></div>
+</section>
+
+<section class="entry" id="december">
+  <div class="when"><span class="date">3–4 days later · 7–9 pm</span><span class="tag">Reel · 17 sec</span><span class="tag">IG + FB</span></div>
+  <h2>Reel · <i>Brows that survive December</i></h2>
+  <div class="media tall">
+    <video src="/kit/reel-december.mp4" controls playsinline muted preload="metadata" width="1080" height="1920" aria-label="Brows that survive December reel, 17 seconds"></video>
+    <a class="btn" href="/kit/reel-december.mp4" download="BloomBar-Reel-Survive-December.mp4">Save video</a>
+  </div>
+  <p class="hint">No sound. Add a Christmas song that’s trending in Instagram’s music picker; that alone gets it shown to more people.</p>
+  <div class="cap"><div class="head"><h3>Caption (IG + FB)</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>Brows that survive December. Simbang Gabi at 4 a.m. included.
+
+Which one is you? Comment the number: 1 to 6.
+
+Brows take two weeks to heal, so book by early December. bloombarmnl.com</pre>
+    <p class="status"></p></div>
+</section>
+
+<section class="entry" id="tag">
+  <div class="when"><span class="date">3–4 days later</span><span class="tag">Feed post</span><span class="tag">IG + FB</span></div>
+  <h2>Post · <i>Tag the friend</i></h2>
+  <div class="media">
+    <img src="/kit/tag-friend.png" alt="Tag the friend who draws her brows in the car" width="1080" height="1350" loading="lazy">
+    <a class="btn" href="/kit/tag-friend.png" download="BloomBar-Tag-the-friend.png">Save image</a>
+  </div>
+  <div class="cap"><div class="head"><h3>Caption (IG + FB)</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>You know exactly who. Tag her.
+
+Mirror down, pencil out, one eye on the traffic light. She could be sleeping ten more minutes.</pre>
+    <p class="status"></p></div>
+  <p class="hint">Reply to every tag with a short, friendly line. Replies keep the post moving.</p>
+</section>
+
+<section class="entry" id="away">
+  <div class="when"><span class="date">3–4 days later</span><span class="tag">Feed post</span><span class="tag">IG + FB</span></div>
+  <h2>Post · <i>I turn some clients away</i></h2>
+  <div class="media">
+    <img src="/kit/turn-away.png" alt="Izza: I turn some clients away" width="1080" height="1350" loading="lazy">
+    <a class="btn" href="/kit/turn-away.png" download="BloomBar-I-turn-clients-away.png">Save image</a>
+  </div>
+  <div class="cap"><div class="head"><h3>Caption (IG + FB)</h3><button class="btn line" data-copy>Copy</button></div>
+<pre>I turn some clients away.
+
+If you’re pregnant, prone to keloids, or your skin is very oily, microblading may not heal well on you. I’ll tell you that at the free brow check, before you pay anything.
+
+Not sure if you’re a candidate? Send me your bare brows: bloombarmnl.com/consult</pre>
+    <p class="status"></p></div>
+  <p class="hint">Edit the caption in your own words if you like. A real story of a client you asked to wait would make it even stronger.</p>
+</section>
+
+<section class="entry" id="film">
+  <h2>Film these <i>yourself</i></h2>
+  <p class="lede">Graphics get shared. Real video of you and your clients gets shared more. Each of these is 10 to 20 seconds on your phone, held upright.</p>
+  <ol class="steps">
+    <li><b>The mirror moment.</b> Hand the client the mirror and film her face as she sees her brows. Ask her first. Text on screen: “She hasn’t seen them yet.”</li>
+    <li><b>Bare to done.</b> One clip of her bare brows, one of the mapping lines, one of the finished brows. Three seconds each.</li>
+    <li><b>“Does it hurt?”</b> You, facing the camera, answering the question you get most. Then do “How long does it last?” and “Can I swim?” the same way.</li>
+    <li><b>Client tags.</b> When a client posts her new brows, share it to your story and thank her. Ask happy clients to tag @ your account.</li>
+  </ol>
 </section>
 
 <!-- REPLIES -->
