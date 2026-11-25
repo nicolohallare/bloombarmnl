@@ -15,6 +15,7 @@
 /consult          /consult.html                                  200
 /gift             /gift.html                                     200
 /kit              /kit/index.html                                200
+/preview          /preview.html                                  200
 /pay              /pay.html                                      200
 /payment          /pay                                           301!
 /gifts            /gift                                          301!
